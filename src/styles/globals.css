@@ -7,18 +7,22 @@
     --light-blue: #CAE7FF;
     --gray: #607377;
 
-    --side-margin: 0px 80px
+    --side-margin: 0 7vw;
 }
 
 html,
 body {
   max-width: 100vw;
   /* overflow-x: hidden; */
-  font-family: var(--primary-font);
+  font-family: var(--font-primary);
   height: 100%;
   margin: 0;
   padding: 0;
   width: 100%;
+}
+
+p{
+  margin: 0;
 }
 
 @font-face {

@@ -1,0 +1,23 @@
+.marquee{
+    width: 100vw;
+    margin-bottom: 300px;
+    overflow: hidden;
+    white-space: no-wrap;
+}
+
+.marqueeItem{
+    background-color: antiquewhite;
+    padding: 15px 0;
+    margin: 20px 0;
+   
+}
+
+.marqueeContent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10 0px;
+    width: 110%;
+}
+
+

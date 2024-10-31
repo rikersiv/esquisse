@@ -13,30 +13,56 @@ function Footer() {
             url: "/about"
         },
         {
-            name: "Contact Us",
+            name: "Contacts",
             url: "/contact"
         }
     ];
-    return(
+    return (
         <div className={styles.footer}>
             <div className={styles.wrapper}>
                 <div className={styles.arrow}>
-                    <Image 
+                    <Image
                         src={'/assets/images/arrow.svg'}
                         width={100}
                         height={100}
                     />
                 </div>
-                <div className={styles.links}>
+                <div className={styles.navigation}>
                     <ul>
                         {pages.map((page, index) => (
                             //{className={`${styles.link} ${pathname === page.url ? styles.active : ''}`
                             <li key={index}>
-                                <Link href={page.url}>{page.name}</Link>
+                                <Link className={styles.links} href={page.url}>{page.name}</Link>
                             </li>
                         ))}
                     </ul>
+
+                    <div className={styles.column}>
+                        <div></div>
+                        <div className={styles.contacts}>
+                            <div className={styles.contactUs}>
+                                <small>Contact Us</small>
+                                <p>+1 891 989-11-91</p>
+                                <p>@esquisse.com</p>
+                            </div>
+
+                            <div className={styles.socialMedia}>
+                                <small>Follow Us</small>
+                                <p><Link className={styles.links} href={"#"}>Telegram</Link> / <Link className={styles.links} href={"#"}>Whatsapp</Link> / <Link className={styles.links} href={"#"}>Twitter</Link></p>
+                            </div>
+                            <div className={styles.copyright}>
+                                <p>© 2023 — Copyright</p>
+                                <Link className={styles.links} href={"#"}>Privacy</Link>
+                            </div>
+                        </div>
+                        <div className={styles.location}>
+                            <p>2972 Westheimer Rd. Sta. Ana, Illinois 85486</p>
+                        </div>
+
+                    </div>
+
                 </div>
+
             </div>
         </div>
     )

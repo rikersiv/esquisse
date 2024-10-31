@@ -1,31 +1,44 @@
-.header{
-    margin: var(--side-margin);
-    padding-top: 20px;
+.header {
+    margin: var(--side-margin); /* Keep this as is, unless you want to convert it */
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    z-index: 1000;
+    /* background-color: var(--blue-background); */
 }
-.wrapper{
+
+.wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 2em 0; /* Converted from 20px to em */
 }
 
-.wrapper nav ul{
+.wrapper nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 70px;
-    padding-inline-start: 0px;
-} & li {
+    gap: 5vw; /* Converted from 70px to vw */
+    padding-inline-start: 0; /* No need to convert */
+}
+
+.wrapper nav ul li {
     list-style: none;
     font-family: var(--font-primary);
-    font-size: 18px;
+    font-size: 1.2vw; /* Converted from 18px to em (1em = 16px) */
     font-weight: 500;
     color: var(--gray);
     text-transform: uppercase;
     display: grid;
-} & a {
+}
+
+.wrapper nav ul li a {
     text-decoration: none;
     color: var(--gray);
-} & li:hover{
+}
+
+.wrapper nav ul li:hover {
     color: var(--secondary-color);
     font-weight: 600;
 }
@@ -35,11 +48,12 @@
     font-weight: 600;
 }
 
-.button{
+.button {
     border: none;
     background-color: unset;
     font-family: var(--font-primary);
-    font-size: 18px;
+    font-size: 1.2vw; /* Converted from 18px to em */
     font-weight: 500;
     color: var(--secondary-color);
 }
+

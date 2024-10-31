@@ -1,0 +1,138 @@
+.homeWrapper {
+    margin: var(--side-margin);
+    max-width: 1420px;
+    text-align: center;
+    display: grid;
+    place-items: center; 
+}
+
+.precision{
+    margin: 100px 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 70px;
+} & h1{
+    font-family: var(--font-primary);
+    font-size: 3em;
+    font-weight: unset;
+    color: var(--secondary-color);
+    text-align: left;
+    margin: 0;
+}
+
+.cardWrapper{
+    display: grid;
+    gap: 20px;
+} 
+
+.card{
+    height: auto;
+    padding: 30px;
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: left;
+} & h4{
+    margin: 0;
+    margin-bottom: 10px;
+    font-weight: 600;
+    font-size: 20px;
+} & p{
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.card img{
+    margin-bottom: 20px;
+}
+ 
+
+.process{
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.title{
+    width: 900px;
+    margin-bottom: 60px;
+    font-weight: 100;
+} & .title strong {
+    font-weight: 500;
+}
+
+.gridWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .gridCard {
+    flex: 0 0 63%; 
+    box-sizing: border-box; 
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    height: auto;
+    padding: 30px;
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: left;
+  }
+
+  .gridCard h4{
+    width: 300px;
+  }
+  
+  .image {
+    flex: 0 0 35%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin-bottom: 20px; 
+  }
+
+
+.image img{
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.efficiency {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+    width: 100%;
+}
+
+.efficiency > * {
+    flex-grow: 1;
+    width: fit-content;
+} & .efficiency h1{
+    font-weight: 100;
+    width: 500px;
+} & .efficiency strong{
+    font-weight: 500;
+} & .efficiency p {
+    color: var(--secondary-color);
+    text-align: left;
+    width: 700px;
+}
+
+.centerTitle h1{
+    font-weight: 100;
+    width: 900px;
+    text-align: center;
+    margin-bottom: 250px;
+}
+
+.centerTitle strong{
+    font-weight: 500;
+}
+
+.marqueeIndex{
+    margin: 0 -7vw;
+}
+

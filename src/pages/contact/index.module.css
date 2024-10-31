@@ -1,0 +1,103 @@
+.contactWrapper {
+    margin: var(--side-margin);
+    max-width: 1420px;
+    text-align: center;
+    display: grid;
+    place-items: center; 
+    padding: 200px 0;
+} & input {
+    border: none;
+    background: none;
+    border-bottom: 1px rgba(26, 54, 89, 0.27) solid;
+    padding: 5px 0;
+    color: var(--secondary-color);
+    outline: none;
+    font-family: var(--primary-font);
+    font-size: 20px;
+    width: 100%;
+} 
+
+.contactWrapper input::placeholder {
+    color: var(--secondary-color);
+    font-size: 18px;
+}
+
+.contactWrapper h1{
+    font-size: 50px;
+    font-weight: 300;
+    color: var(--secondary-color);
+    margin-bottom: 120px;
+}
+
+.contactWrapper form{
+    max-width: 1420px;
+    width: 100%;
+    display: block;
+}
+
+.row{
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+}
+
+.messageWrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    margin-bottom: 100px;
+}
+
+.messageWrapper label {
+    margin-bottom: 50px;
+    font-size: 18px;
+    color: var(--secondary-color);
+}
+
+.message {
+    width: 100%;
+    height: auto;
+    border: none;
+    background: none;
+    border-bottom: 1px rgba(26, 54, 89, 0.27) solid;
+    padding: 5px 0;
+    color: var(--secondary-color);
+    outline: none;
+    font-family: var(--primary-font);
+    font-size: 20px;
+    resize: none;
+}
+
+.button {
+    position: relative;
+    background-color: var(--primary-color);
+    border: none;
+    height: 80px;
+    width: 250px;
+    color: white;
+    font-size: 20px;
+    font-weight: 200;
+    border-radius: 74px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0; 
+    margin: auto;
+}
+
+.image {
+    position: absolute;
+    right: 20px;
+    border: 1px solid white;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5px;
+}

@@ -7,14 +7,16 @@ import Image from "next/image";
 function Contact() {
     const autoResize = (e) => {
         e.target.style.height = "auto";
-        e.target.style.height = `${e.target.scrollHeight}px`; 
+        e.target.style.height = `${e.target.scrollHeight}px`;
     };
     return (
         <MainLayout>
-            {/* <div className={styles.header}>
-            <Image src={'/assets/images/contact_bg.svg'} width={100} height={50}/>
-        </div> */}
-            <Banner />
+            <Banner bgPath="url('/assets/images/contact_bg.svg')">
+                <p style={{marginTop:'auto', marginBottom:'-3rem'}}>Contact Us</p>
+                <button className={styles.scroll}>SCROLL<br />DOWN</button>
+            </Banner>
+
+
             <div className={styles.contactWrapper}>
                 <h1><strong>Enter</strong> the Vanguard of<br />Next-Generation Networking</h1>
                 <form>
@@ -34,7 +36,7 @@ function Contact() {
                     <button type="submit" className={styles.button}>
                         SEND
                         <div className={styles.image}>
-                            <Image src={'/assets/images/icons/arrow-slant.svg'} width={25} height={25}/>
+                            <Image src={'/assets/images/icons/arrow-slant.svg'} width={25} height={25} />
                         </div>
                     </button>
                 </form>

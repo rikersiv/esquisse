@@ -23,6 +23,15 @@
     margin-bottom: 30px;
 }
 
+.arrow img{
+    transition: transform 0.5s ease-in-out; 
+}
+
+.arrow:hover img{
+    transform: scale(1.1);
+}
+
+
 .navigation {
     flex-grow: 1;
 }
@@ -92,6 +101,7 @@
     color: var(--light-blue)
 } & p a{
     color: var(--light-blue) !important;
+    text-decoration: none;
 }
 
 .copyright{
@@ -102,4 +112,8 @@
     font-size: 1vw;
 } & .links{
     color: var(--light-blue) !important;
+}
+
+.footer a:hover, .navigation ul li .links:hover{
+    text-decoration: underline;
 }

@@ -1,0 +1,32 @@
+.card{
+    flex: 1;
+    background-color: var(--secondary-color);
+    padding: 2rem;
+    color: white;
+    text-align: left;
+    transition: transform 0.5s ease-in-out; 
+}
+
+
+
+.card:hover{
+    transform: scale(1.05);
+}
+
+.card img{
+    width: auto;
+    margin-bottom: 4em;
+}
+
+.card h4{
+    font-size: 2em;
+    font-weight: 500;
+    margin-bottom: 0.7em;
+}
+
+.card p {
+    color: var(--light-blue);
+    font-size: 1.2em;
+    text-align: left;
+}
+

@@ -101,3 +101,15 @@
     align-items: center;
     padding: 5px;
 }
+
+.scroll {
+    text-transform: uppercase;
+    border: none;
+    width: 15vw;
+    height: 15vw;
+    border-radius: 50%;
+    background-color: var(--blue-background);
+    color: var(--secondary-color);
+    font-size: 2.5vw;
+    font-family: var(--font-primary);
+}

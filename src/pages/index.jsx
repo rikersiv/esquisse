@@ -1,3 +1,4 @@
+import React, { useState, useEffect, useRef } from "react";
 import Banner from "@/components/home/Banner";
 import HoverableCards from "@/components/home/hoverableCards";
 import MainLayout from "@/layouts/MainLayout";
@@ -6,8 +7,29 @@ import Image from "next/image";
 import Marquee from "@/components/home/Marquee";
 import Network from "@/components/home/Network";
 
-
 function Home() {
+  const [isBannerVisible, setIsBannerVisible] = useState(true);
+  const homeWrapperRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          setIsBannerVisible(true);
+        } else {
+          setIsBannerVisible(false);
+        }
+      },
+      { threshold: 0.07 }
+    );
+
+    if (homeWrapperRef.current) {
+      observer.observe(homeWrapperRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const cardItems = [
     {
       src: '/assets/images/icons/connection.svg',
@@ -24,11 +46,15 @@ function Home() {
       title: 'Cultivate Enduring Partnerships',
       content: 'Build trust-based relationships that support lasting growth and shared success.'
     }
-  ]
+  ];
+
   return (
-    <MainLayout>
-      <Banner />
-      <div className={styles.homeWrapper}>
+    <MainLayout isBannerVisible={isBannerVisible}>
+      <Banner bgPath="url('/assets/images/background_banner.svg')">
+        <p>Your Portal to Effortless,<br /><strong>Impactful Connections</strong></p>
+        <button className={styles.chat}>REACH<br />OUT</button>
+      </Banner>
+      <div ref={homeWrapperRef} className={styles.homeWrapper}>
         <div className={styles.precision}>
           <h1><strong>Precision Driven</strong> Connectivity Aligned<br />with Your <strong>Business Goals</strong></h1>
           <div className={styles.cardWrapper}>
@@ -39,7 +65,6 @@ function Home() {
                 <p>{item.content}</p>
               </div>
             ))}
-
           </div>
         </div>
 
@@ -83,11 +108,8 @@ function Home() {
         </div>
         <Network />
       </div>
-
     </MainLayout>
-
-
-  )
+  );
 }
 
 export default Home;

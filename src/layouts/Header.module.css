@@ -1,32 +1,32 @@
 .header {
-    margin: var(--side-margin); /* Keep this as is, unless you want to convert it */
+    padding: var(--side-margin);
     position: fixed; 
     top: 0; 
     left: 0; 
     right: 0; 
     z-index: 1000;
-    /* background-color: var(--blue-background); */
+    background-color: var(--blue-background);
 }
 
 .wrapper {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 2em 0; /* Converted from 20px to em */
+    padding: 0.7em 0;
 }
 
 .wrapper nav ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5vw; /* Converted from 70px to vw */
-    padding-inline-start: 0; /* No need to convert */
+    gap: 5vw;
+    padding-inline-start: 0; 
 }
 
 .wrapper nav ul li {
     list-style: none;
     font-family: var(--font-primary);
-    font-size: 1.2vw; /* Converted from 18px to em (1em = 16px) */
+    font-size: 1.2vw;
     font-weight: 500;
     color: var(--gray);
     text-transform: uppercase;
@@ -48,12 +48,24 @@
     font-weight: 600;
 }
 
+.active, .active a{
+    color: var(--secondary-color) !important;
+    font-weight: 600 !important;
+}
+
 .button {
     border: none;
     background-color: unset;
     font-family: var(--font-primary);
-    font-size: 1.2vw; /* Converted from 18px to em */
+    font-size: 1.2vw;
     font-weight: 500;
     color: var(--secondary-color);
+}
+
+.bannerTrue{
+    color: var(--light-blue) !important;
+    font-weight: 100 !important;
+} & .bannerTrue a{
+    color: var(--light-blue) !important;
 }
 

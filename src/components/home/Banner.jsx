@@ -1,11 +1,10 @@
 import styles from "./Banner.module.css";
 
-function Banner() {
+function Banner({ bgPath, children }) {
     return (
-        <div className={styles.wrapper}>
+        <div className={styles.wrapper} style={{backgroundImage: bgPath}}>
             <div className={styles.innerWrapper}>
-                <p>Your Portal to Effortless,<br/><strong>Impactful Connections</strong></p>
-                <button className={styles.chat}>REACH<br/>OUT</button>
+                {children}
             </div>
         </div>
     );

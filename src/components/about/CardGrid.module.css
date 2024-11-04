@@ -18,18 +18,18 @@
     flex-direction: column;
 }
 
-.innerCard{
-    width: 30rem;
+.innerCard {
     height: 100%;
+    width: 80%;
 }
 
-.card img{
+.card img {
     width: 100%;
     height: auto;
     margin: auto;
 }
 
-.card h1{
+.card h1 {
     font-size: 2.5rem;
     font-weight: 400;
     color: white;
@@ -58,4 +58,65 @@
 
 .tags p:last-child {
     flex: 1;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .wrapper {
+        margin-bottom: 100px; /* Adjust margin */
+    }
+
+    .card {
+        height: auto; 
+    }
+
+    .card h1 {
+        font-size: 2rem;
+        margin-top: 0;
+    }
+
+    .innerCard{
+        width: 100%;
+    }
+
+    .tags p {
+        flex: 1 1 100%; /* Full width for tags */
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        margin-bottom: 50px;
+        grid-template-columns: 1fr;
+    }
+
+    .card {
+        padding: 3rem; 
+    }
+
+    .card h1 {
+        font-size: 1.75rem; /* Adjust font size */
+    }
+
+    .tags p {
+        padding: 0.5rem; /* Adjust padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        margin-bottom: 20px; /* Further adjust margin */
+    }
+
+    .card {
+        padding: 1rem; /* Reduce padding */
+    }
+
+    .card h1 {
+        font-size: 1.5rem; /* Adjust font size */
+    }
+
+    .tags p {
+        padding: 0.3rem; /* Adjust padding */
+    }
 }

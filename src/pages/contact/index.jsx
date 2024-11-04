@@ -16,30 +16,31 @@ function Contact() {
                 <button className={styles.scroll}>SCROLL<br />DOWN</button>
             </Banner>
 
-
-            <div className={styles.contactWrapper}>
-                <h1><strong>Enter</strong> the Vanguard of<br />Next-Generation Networking</h1>
-                <form>
-                    <div className={styles.row}>
-                        <input type="text" id="name" name="name" placeholder="Name"></input>
-                        <input type="text" id="email" name="email" placeholder="Email"></input>
-                    </div>
-                    <div className={styles.row}>
-                        <input type="text" id="phone_number" name="phone_number" placeholder="Phone Number"></input>
-                        <input type="text" id="your_business" name="your_business" placeholder="Your Business"></input>
-                    </div>
-                    <div className={styles.messageWrapper}>
-                        <label htmlFor="message">Message</label>
-                        <textarea className={styles.message} id="message" name="message" onInput={autoResize}></textarea>
-                    </div>
-
-                    <button type="submit" className={styles.button}>
-                        SEND
-                        <div className={styles.image}>
-                            <Image src={'/assets/images/icons/arrow-slant.svg'} width={25} height={25} />
+            <div className={styles.children}>
+                <div className={styles.contactWrapper}>
+                    <h1><strong>Enter</strong> the Vanguard of<br />Next-Generation Networking</h1>
+                    <form>
+                        <div className={styles.row}>
+                            <input type="text" id="name" name="name" placeholder="Name"></input>
+                            <input type="text" id="email" name="email" placeholder="Email"></input>
                         </div>
-                    </button>
-                </form>
+                        <div className={styles.row}>
+                            <input type="text" id="phone_number" name="phone_number" placeholder="Phone Number"></input>
+                            <input type="text" id="your_business" name="your_business" placeholder="Your Business"></input>
+                        </div>
+                        <div className={styles.messageWrapper}>
+                            <label htmlFor="message">Message</label>
+                            <textarea className={styles.message} id="message" name="message" onInput={autoResize}></textarea>
+                        </div>
+
+                        <button type="submit" className={styles.button}>
+                            SEND
+                            <div className={styles.image}>
+                                <Image src={'/assets/images/icons/arrow-slant.svg'} width={25} height={25} />
+                            </div>
+                        </button>
+                    </form>
+                </div>
             </div>
 
         </MainLayout>

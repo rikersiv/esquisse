@@ -1,23 +1,33 @@
 .marquee{
     width: 100vw;
+    left: 0;
     margin-bottom: 300px;
     overflow: hidden;
     white-space: no-wrap;
 }
 
 .marqueeItem{
-    background-color: antiquewhite;
     padding: 15px 0;
-    margin: 20px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10 0px;
+    width: 110%;
+    white-space: nowrap;
    
 }
 
 .marqueeContent{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 10 0px;
+    margin: 10 0px;
     width: 110%;
+    white-space: nowrap;
+}
+
+.marqueeWrapper{
+    margin-bottom: 1vw;
 }
 
 

@@ -1,3 +1,8 @@
+.children{
+    display: flex;
+    justify-content: center;
+}
+
 .contactWrapper {
     margin: var(--side-margin);
     max-width: 1420px;

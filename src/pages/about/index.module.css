@@ -1,3 +1,8 @@
+.children{
+    display: flex;
+    justify-content: center;
+}
+
 .wrapper {
     margin: var(--side-margin);
     max-width: 1420px;
@@ -12,7 +17,7 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    gap: 30px;
+    gap: 1.8em;
     margin-bottom: 150px;
 }
 
@@ -26,6 +31,7 @@
     flex: 2;
     color: var(--secondary-color);
     text-align: justify;
+    font-size: 1.2em;
 }
 
 .flex img {
@@ -44,7 +50,7 @@
     text-align: left;
 }
 
-& .title strong {
+.title strong {
     color: var(--primary-color);
     font-weight: 500;
 }
@@ -64,9 +70,27 @@
     top: -2em;
 }
 
+.flex2 {
+    .imgWrapper {
+        position: relative;
+        display: inline-block;
+        flex-grow: 1;
+        height: 550px;
+    }
+
+    .imgWrapper img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+}
+
 .imgWrapper {
     position: relative;
     display: inline-block;
+    flex-grow: 1;
 }
 
 .imgWrapper div {
@@ -89,7 +113,7 @@
     text-align: center;
     font-size: 1.5em;
     font-weight: 400;
-    padding: 0 1.5em;
+    padding: 0 1em;
 }
 
 .innerText {
@@ -99,8 +123,8 @@
 }
 
 .innerText img {
-    width: 3em;
-    padding: 0 1.1em;
+    width: 3em !important;
+    padding: 0 1em;
     margin-bottom: 1em;
 }
 
@@ -108,6 +132,7 @@
     color: white;
     font-size: 0.7em;
     text-align: left;
+    padding: 1em;
 }
 
 .sideText {
@@ -115,7 +140,7 @@
     margin-left: 5em;
 }
 
-& .sideText h1 {
+.sideText h1 {
     margin-top: 0;
     text-align: left;
 }
@@ -124,21 +149,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transform: translate(-50%, 115%) !important;
+}
 
-    & h1 {
-        color: transparent;
-        -webkit-text-stroke: 1px white;
-        padding: 0 0.5em;
-        margin-bottom: 0;
-    }
+.horizontalText h1 {
+    color: transparent;
+    -webkit-text-stroke: 1px white;
+    padding: 0 0.5em;
+    margin-bottom: 0;
+}
 
-    & p {
-        color: white;
-        font-size: 0.7em;
-        text-align: left;
-        padding-right: 2em;
-    }
+.horizontalText p {
+    color: white;
+    font-size: 0.7em;
+    text-align: left;
+    padding-right: 2em;
 }
 
 .joinUs {
@@ -158,6 +182,144 @@
     transition: transform 0.5s ease-in-out;
 }
 
-.joinUs:hover{
-    transform: scale(1.1)
+.joinUs:hover {
+    transform: scale(1.1);
 }
+
+@media (max-width: 1024px) {
+    .wrapper {
+        padding: 100px 0; 
+    }
+
+    .flex {
+        align-items: center;
+        margin-bottom: 100px; 
+    }
+
+    .flex h1 {
+        font-size: 4.5vw; 
+    }
+
+    .title {
+        font-size: 2.5vw; 
+    }
+
+    .learnMore {
+        width: 20vw;
+        height: 20vw;
+        font-size: 3vw;
+    }
+
+    .imgWrapper {
+        width: 100%;
+    }
+
+    .imgWrapper div {
+        font-size: 1.2em;
+    }
+
+    .innerText img {
+        width: 2em; /* Adjust image size */
+    }
+
+    .sideText {
+        width: 100%; 
+        margin-left: 0;
+        margin-right: 0 !important;
+    }
+
+    .joinUs {
+        width: 20vw;
+        height: 20vw;
+        font-size: 3vw;
+    }
+
+    .horizontalText p {
+        font-size: 1vw;
+    }
+
+    .imgConditional{
+        display: none !important;
+    }
+
+    .innerText img{
+        width: 8vw !important;
+    }
+
+    .innerText p{
+        font-size: 2vw;
+    }
+}
+
+@media (max-width: 768px) {
+    .block{
+        display: block !important;
+    }
+    .flex {
+        margin-bottom: 50px;
+        flex-wrap: wrap;
+    }
+
+    .flex h1 {
+        font-size: 2rem;
+    }
+
+    .flex p {
+        font-size: 0.8em;
+    }
+
+    .title {
+        font-size: 2em;
+    }
+
+    .learnMore {
+        width: 25vw;
+        height: 25vw;
+        font-size: 3.5vw;
+    }
+
+    .imgWrapper {
+        width: 100%;
+    }
+
+    .innerText p {
+        font-size: 2.5vw;
+    }
+
+    .innerText img {
+        width: 5vw !important;
+        margin-bottom: 0;
+    }
+
+    .innerTextImg{
+        height: 20vw !important;
+    }
+
+    .sideText {
+        width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .horizontalDivWrapper{
+        width: 100%;
+    }
+
+    .joinUs {
+        width: 25vw;
+        height: 25vw;
+        font-size: 3.5vw;
+    }
+
+    .flex2 {
+        .imgWrapper:nth-of-type(2) {
+            height: 20vw;
+        }
+
+        .imgWrapper h1{
+            margin-bottom: 0;
+            font-size: 5vw;
+        }
+    }
+}
+

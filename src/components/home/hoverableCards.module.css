@@ -1,13 +1,14 @@
 .wrapper {
     margin-bottom: 300px;
     max-width: 1420px;
-    height: 400px;
+    height: auto; /* Allow height to adjust based on content */
 }
 
 .cardWrapper {
     display: flex; 
     justify-content: space-between; 
     height: 100%;
+    flex-wrap: wrap; /* Allow cards to wrap on smaller screens */
 }
 
 .card {
@@ -15,10 +16,12 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 30px 20px;
-    height: 100%;
+    height: auto; /* Allow card height to adjust based on content */
     text-align: left;
     flex: 1; 
     transition: flex 0.3s ease, transform 0.3s ease; 
+    min-width: 300px; /* Minimum width for cards */
+    box-sizing: border-box; /* Include padding in width */
 }
 
 .card.expanded {
@@ -29,7 +32,7 @@
     margin-top: 20px;
     margin-bottom: 45px;
     font-weight: 500;
-    font-size: 1.5em;
+    font-size: 1.5em; /* Responsive font size can be adjusted */
 }
 
 .button {
@@ -42,4 +45,76 @@
     justify-content: center;
     align-items: center;
     margin-top: auto;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 1024px) {
+    .wrapper {
+        margin-bottom: 150px; /* Adjust margin */
+    }
+
+    .cardWrapper {
+        justify-content: center; /* Center cards */
+    }
+
+    .card {
+        padding: 20px; /* Reduce padding */
+        min-width: 250px; /* Adjust minimum width */
+    }
+
+    .card h4 {
+        font-size: 1.25em; /* Adjust font size */
+        margin-bottom: 30px; /* Adjust margin */
+    }
+
+    .button {
+        
+        margin: 20px 0;
+        height: 80px; /* Adjust button size */
+        width: 80px; /* Adjust button size */
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper {
+        margin-bottom: 100px; /* Further adjust margin */
+    }
+
+    .cardWrapper {
+        flex-direction: column; /* Stack cards vertically */
+        align-items: center; /* Center cards */
+    }
+
+    .card {
+        width: 100%; /* Full width for cards */
+        max-width: 400px; /* Limit max width */
+        margin-bottom: 20px; /* Space between stacked cards */
+    }
+
+    .card h4 {
+        font-size: 1.1em; /* Adjust font size */
+        margin-bottom: 20px; /* Adjust margin */
+    }
+
+    .button {
+        margin: 20px 0;
+        height: 60px; /* Adjust button size */
+        width: 60px; /* Adjust button size */
+    }
+}
+
+@media (max-width: 480px) {
+    .wrapper {
+        margin-bottom: 50px; /* Further adjust margin */
+    }
+
+    .card h4 {
+        font-size: 1em; /* Adjust font size */
+        margin-bottom: 15px; /* Adjust margin */
+    }
+
+    .button {
+        height: 50px; /* Adjust button size */
+        width: 50px; /* Adjust button size */
+    }
 }

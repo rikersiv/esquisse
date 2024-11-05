@@ -57,15 +57,16 @@
     margin-bottom: 100px;
 }
 
-.messageWrapper label {
+/* .messageWrapper label {
     margin-bottom: 50px;
     font-size: 18px;
     color: var(--secondary-color);
-}
+} */
 
 .message {
     width: 100%;
     height: auto;
+    min-height: 150px;
     border: none;
     background: none;
     border-bottom: 1px rgba(26, 54, 89, 0.27) solid;
@@ -75,6 +76,11 @@
     font-family: var(--primary-font);
     font-size: 20px;
     resize: none;
+}
+
+.messageWrapper textarea::placeholder {
+    color: var(--secondary-color);
+    font-size: 18px;
 }
 
 .button {
@@ -92,6 +98,10 @@
     align-items: center;
     padding: 0; 
     margin: auto;
+}
+
+.button:hover{
+    background-color: #2D82C1;
 }
 
 .image {

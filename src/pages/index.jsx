@@ -6,124 +6,116 @@ import styles from './index.module.css';
 import Image from "next/image";
 import Marquee from "@/components/home/Marquee";
 import Network from "@/components/home/Network";
+import { gsap } from "gsap";
+import Precision from "@/components/home/Precision";
+import ScrollTrigger from 'gsap/dist/ScrollTrigger';
+import Process from "@/components/home/Process";
+
+gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
   const [isBannerVisible, setIsBannerVisible] = useState(true);
   const homeWrapperRef = useRef(null);
-  const marqueeRef = useRef(null);
-  const networkRef = useRef(null);
+  const efficiencyRef = useRef(null);
 
 
   useEffect(() => {
-    const observerHome = new IntersectionObserver(
-      ([entry]) => {
-        setIsBannerVisible(!entry.isIntersecting);
-      },
-      { threshold: 0.07 }
-    );
+    const handleVisibilityChange = (isVisible) => {
+      setIsBannerVisible(isVisible);
+    };
 
-    const observerMarquee = new IntersectionObserver(
-      ([entry]) => {
-        setIsBannerVisible(!entry.isIntersecting);
-      },
-      { threshold: 0.07 }
-    );
-
-    const observerNetwork = new IntersectionObserver(
-      ([entry]) => {
-        setIsBannerVisible(!entry.isIntersecting);
-      },
-      { threshold: 0.07 }
-    );
-
-    if (homeWrapperRef.current) {
-      observerHome.observe(homeWrapperRef.current);
-    }
-
-    if (marqueeRef.current) {
-      observerMarquee.observe(marqueeRef.current);
-    }
-
-    if (networkRef.current) {
-      observerNetwork.observe(networkRef.current);
-    }
-
+    const homeTrigger = ScrollTrigger.create({
+      trigger: homeWrapperRef.current,
+      start: 'top top', 
+      onEnter: () => handleVisibilityChange(false), 
+      onLeave: () => handleVisibilityChange(false), 
+      onEnterBack: () => handleVisibilityChange(false),
+      onLeaveBack: () => handleVisibilityChange(true),
+      toggleActions: 'play none none reverse',
+    });
     return () => {
-      observerHome.disconnect();
-      observerMarquee.disconnect();
-      observerNetwork.disconnect();
+      homeTrigger.kill();
     };
   }, []);
 
-  const cardItems = [
-    {
-      src: '/assets/images/icons/connection.svg',
-      title: 'Accelerate Connections',
-      content: 'Connect with ideal partners quickly and effortlessly through precision-driven algorithms.'
-    },
-    {
-      src: '/assets/images/icons/productivity.svg',
-      title: 'Elevate Productivity',
-      content: 'Use esquisse’s seamless interface to streamline networking, focusing more on collaboration than searching.'
-    },
-    {
-      src: '/assets/images/icons/partnership.svg',
-      title: 'Cultivate Enduring Partnerships',
-      content: 'Build trust-based relationships that support lasting growth and shared success.'
-    }
-  ];
+  useEffect(() => {
+    const button = document.querySelector(`.${styles.chat}`);
+
+    const createRippleEffect = () => {
+      const tl = gsap.timeline();
+
+      tl.to(button, {
+        boxShadow: "0 0 0 20px rgba(59, 142, 204, 0.61), 0 0 0 0px rgba(59, 142, 204, 0)",
+        duration: 0.4,
+        ease: "ease"
+      })
+        .to(button, {
+          boxShadow: "0 0 0 20px rgba(59, 142, 204, 0.3), 0 0 0 40px rgba(59, 142, 204, 0.28)",
+          duration: 0.2,
+          ease: "ease"
+        })
+        .to(button, {
+          boxShadow: "0 0 0 20px rgba(59, 142, 204, 0), 0 0 0 40px rgba(59, 142, 204, 0.28)",
+          duration: 0.4,
+          ease: "ease"
+        })
+        .to(button, {
+          boxShadow: "0 0 0 0px rgba(59, 142, 204, 0), 0 0 0 0px rgba(59, 142, 204, 0)",
+          duration: 0.3,
+          ease: "ease"
+        });
+    };
+
+    button.addEventListener("mouseenter", createRippleEffect);
+
+    return () => {
+      button.removeEventListener("mouseenter", createRippleEffect);
+    };
+  }, []);
+
+  useEffect(() => {
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: efficiencyRef.current,
+            start: 'top 50%',
+            toggleActions: 'play none none reverse',
+        },
+    });
+
+    tl.fromTo(efficiencyRef.current, 
+        { opacity: 0 },
+        {
+            opacity: 1,
+            duration: 1.5,
+            ease: "ease",
+        }, "<"); 
+    return () => {
+        if (ScrollTrigger) {
+            ScrollTrigger.kill();
+        }
+    };
+}, []);
 
   return (
     <MainLayout isBannerVisible={isBannerVisible}>
-      <Banner bgPath="url('/assets/images/background_banner.svg')">
+      <Banner videoPath="/assets/videos/homepage_herobanner.mp4">
         <p>Your Portal to Effortless,<br /><strong>Impactful Connections</strong></p>
         <button className={styles.chat}>REACH<br />OUT</button>
       </Banner>
       <div className={styles.children}>
         <div ref={homeWrapperRef} className={styles.homeWrapper}>
-          <div className={styles.precision}>
-            <h1><strong>Precision Driven</strong> Connectivity Aligned<br />with Your <strong>Business Goals</strong></h1>
-            <div className={styles.cardWrapper}>
-              {cardItems.map((item, index) => (
-                <div className={styles.card} key={index}>
-                  <Image src={item.src} width={30} height={30} alt={item.title} />
-                  <h4>{item.title}</h4>
-                  <p>{item.content}</p>
-                </div>
-              ))}
-            </div>
-          </div>
 
-          <div className={styles.process}>
-            <div className={styles.title}>
-              <h1>How It Works: <strong>Seamless Connections, Effortlessly Achieved</strong></h1>
-            </div>
-            <div className={styles.gridWrapper}>
-              <div className={styles.gridCard}>
-                <div>
-                  <h4>Intelligent Matching Powered by Advanced Algorithms</h4>
-                  <p>Driven by sophisticated AI, esquisse rapidly learns your unique preferences and objectives to connect you with ideal partners, clients, and collaborators in seconds. With every interaction, the platform fine-tunes its recommendations, ensuring that each connection aligns with your strategic goals.</p>
-                </div>
-              </div>
-              <div className={styles.image}>
-                <Image src={'/assets/images/image1.svg'} width={100} height={60} />
-              </div>
-              <div className={styles.image}><Image src={'/assets/images/image2.svg'} width={100} height={60} /></div>
-              <div className={styles.gridCard}>
-                <div>
-                  <h4>Personalized, Real-Time Suggestions</h4>
-                  <p>Experience networking tailored precisely to your needs with real-time suggestions that evolve as you do. Our platform delivers data-driven insights, guiding you toward high-impact connections while optimizing your approach with actionable analytics.</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          <Precision />
+          <Process />
 
-          <div className={styles.efficiency}>
-            <h1>Where <strong>Efficiency</strong> Meets <strong>Innovation</strong></h1>
-            <p>esquisse is built for scalability and security. Whether you’re a growing startup or an established company, we provide tools that evolve with your business. Features That Set Us Apart.</p>
-          </div>
+          <div ref={efficiencyRef} style={{opacity: 0}}>
+            <div className={styles.efficiency}>
+              <h1>Where <strong>Efficiency</strong> Meets <strong>Innovation</strong></h1>
+              <p>esquisse is built for scalability and security. Whether you’re a growing startup or an established company, we provide tools that evolve with your business. Features That Set Us Apart.</p>
+            </div>
 
-          <HoverableCards />
+            <HoverableCards />
+          </div>
 
           <div className={styles.centerTitle}>
             <h1>What Our Users Say: <strong>Transformative Experiences, Real Results</strong></h1>
@@ -131,11 +123,11 @@ function Home() {
         </div>
       </div>
 
-      <div ref={marqueeRef} className={styles.marqueeIndex}>
+      <div className={styles.marqueeIndex}>
         <Marquee />
       </div>
       <div className={styles.children}>
-        <div ref={networkRef} className={styles.homeWrapper}>
+        <div className={styles.homeWrapper}>
           <Network />
         </div>
       </div>

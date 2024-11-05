@@ -1,8 +1,54 @@
+import React, { useRef } from 'react';
 import Link from "next/link";
 import styles from "./Footer.module.css";
 import Image from "next/image";
+import { gsap } from 'gsap';
 
 function Footer() {
+    const imageRef = useRef(null);
+    const arrowRef = useRef(null);
+    const tl = gsap.timeline();
+
+    const handleMouseEnter = () => {
+        const tl = gsap.timeline();
+        imageRef.current.src = '/assets/images/icons/arrow-dark.svg';
+        tl.to(imageRef.current, {
+            opacity: 0,
+            duration: 0.1,
+            onComplete: () => {
+                gsap.to(imageRef.current, {
+                    opacity: 1,
+                    duration: 0.5
+                });
+            }
+        })
+        .to(arrowRef.current, {
+            backgroundColor: '#ffffff',
+            duration: 0.1,
+            position: "+=0" 
+        });
+    };
+
+    const handleMouseLeave = () => {
+        const tl = gsap.timeline();
+        imageRef.current.src = '/assets/images/arrow.svg';
+        tl.to(imageRef.current, {
+            opacity: 0,
+            duration: 0.1,
+            onComplete: () => {
+                gsap.to(imageRef.current, {
+                    opacity: 1,
+                    duration: 0.1
+                });
+            }
+        })
+        .to(arrowRef.current, {
+            backgroundColor: 'transparent',
+            duration: 0.1,
+            position: "+=0" 
+        });
+    };
+
     const pages = [
         {
             name: "Home",
@@ -18,19 +64,19 @@ function Footer() {
         }
     ];
 
-    // Function to handle scroll to top
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
-            behavior: 'smooth' // Optional: adds smooth scrolling effect
+            behavior: 'smooth'
         });
     };
 
     return (
         <div className={styles.footer}>
             <div className={styles.wrapper}>
-                <div className={styles.arrow} onClick={scrollToTop}>
-                    <Image
+                <div className={styles.arrow} onClick={scrollToTop} ref={arrowRef} onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}>
+                    <Image ref={imageRef}
                         src={'/assets/images/arrow.svg'}
                         width={100}
                         height={100}

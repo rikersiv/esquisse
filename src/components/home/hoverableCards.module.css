@@ -16,12 +16,13 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 30px 20px;
-    height: auto; /* Allow card height to adjust based on content */
+    min-height: 450px;
+    height: auto; 
     text-align: left;
     flex: 1; 
     transition: flex 0.3s ease, transform 0.3s ease; 
-    min-width: 300px; /* Minimum width for cards */
-    box-sizing: border-box; /* Include padding in width */
+    min-width: 300px;
+    box-sizing: border-box; 
 }
 
 .card.expanded {

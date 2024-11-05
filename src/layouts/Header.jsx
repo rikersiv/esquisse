@@ -23,7 +23,7 @@ function Header({ bgColor, logo, banner, isFooterVisible }) {
     return (
         <div className={styles.header} style={{ backgroundColor: bgColor, display: isFooterVisible ? 'none' : 'unset' }}>
             <div className={styles.wrapper}>
-                <Link href={'/'}>
+                <Link href={'/'} className={styles.logo}>
                     <Image
                         style={{display: 'block'}}
                         src={`/assets/images/${logo}`}

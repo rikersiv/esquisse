@@ -1,0 +1,87 @@
+.precision {
+    margin: 100px 0;
+    width: 100%;
+    max-width: 1420px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 70px;
+    overflow: hidden;
+}
+
+.precision h1 {
+    font-family: var(--font-primary);
+    font-size: 3.1em; 
+    font-weight: unset;
+    color: var(--secondary-color);
+    text-align: left;
+    margin: 0;
+}
+
+.cardWrapper {
+    display: grid;
+    gap: 20px;
+    opacity: 0;
+} 
+
+.card {
+    height: auto;
+    padding: 1.875em;
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: left;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card h4 {
+    margin: 0;
+    margin-bottom: 0.625em;
+    font-weight: 600;
+    font-size: 1.25em;
+}
+
+.card p {
+    font-weight: 300;
+    font-size: 1.125em;
+}
+
+.card img {
+    margin-bottom: 20px;
+}
+
+@media (max-width: 1024px) {
+    .precision {
+        grid-template-columns: 1fr; 
+        gap: 40px;
+    }
+
+    .precision h1 {
+        font-size: 4vw;
+    }
+
+    .title {
+        width: 100%;
+        margin-bottom: 100px;
+    }
+
+    .title h1{
+        font-size: 2.5em;
+    }
+}
+
+@media (max-width: 768px){
+    .precision {
+        margin: 50px 0;
+    }
+
+    .precision h1 {
+        font-size: 2em; 
+    }
+
+    .title {
+        margin-bottom: 20px; 
+    }
+
+    .title h1{
+        font-size: 2em;
+    }
+}

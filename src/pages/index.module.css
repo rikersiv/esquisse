@@ -10,124 +10,6 @@
     place-items: center; 
 }
 
-.precision {
-    margin: 100px 0;
-    width: 100%;
-    max-width: 1420px;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 70px;
-}
-
-.precision h1 {
-    font-family: var(--font-primary);
-    font-size: 3.1em; /* Responsive font size */
-    font-weight: unset;
-    color: var(--secondary-color);
-    text-align: left;
-    margin: 0;
-}
-
-.cardWrapper {
-    display: grid;
-    gap: 20px;
-} 
-
-.card {
-    height: auto;
-    padding: 1.875em;
-    background-color: var(--secondary-color);
-    color: white;
-    text-align: left;
-    transition: transform 0.5s ease-in-out;
-}
-
-.card h4 {
-    margin: 0;
-    margin-bottom: 0.625em;
-    font-weight: 600;
-    font-size: 1.25em;
-}
-
-.card p {
-    font-weight: 300;
-    font-size: 1.125em;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.card img {
-    margin-bottom: 20px;
-}
-
-.process {
-    width: 100%;
-    max-width: 1420px;
-    margin-bottom: 100px;
-}
-
-.title {
-    width: 60%;
-    max-width: 1420px;
-    margin-bottom: 60px;
-    font-weight: 100;
-}
-
-.title h1{
-    font-size: 40px;
-    font-weight: 100;
-    text-align: left;
-    color: var(--secondary-color)
-}
-
-.title strong {
-    font-weight: 500;
-}
-
-.gridWrapper {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.gridCard {
-    flex: 0 0 63%; 
-    box-sizing: border-box; 
-    margin-bottom: 20px;
-    display: flex;
-    align-items: center;
-    height: auto;
-    padding: 30px;
-    background-color: var(--secondary-color);
-    color: white;
-    text-align: left;
-}
-
-.gridCard h4 {
-    width: 100%;
-    max-width: 1420px;
-    font-size: 1.265em;
-    font-weight: 500;
-    margin-top: 0;
-}
-
-.image {
-    flex: 0 0 35%; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center;
-    margin-bottom: 20px; 
-}
-
-.image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
 .efficiency {
     display: flex;
     justify-content: space-between;
@@ -173,14 +55,14 @@
 }
 
 .marqueeIndex {
-    width: 100vw; /* Make the marquee index full width */
-    position: relative; /* Optional: for positioning */
-    left: 50%; /* Centering it */
-    right: 50%; /* Centering it */
-    margin-left: -50vw; /* Pulling it back to the left */
-    margin-right: -50vw; /* Pulling it back to the right */
-    overflow: hidden; /* Prevent overflow */
-    padding: 0; /* Remove padding */
+    width: 100vw;
+    position: relative; 
+    left: 50%; 
+    right: 50%; 
+    margin-left: -50vw; 
+    margin-right: -50vw; 
+    overflow: hidden;
+    padding: 0; 
 }
 
 .chat {
@@ -193,41 +75,9 @@
     color: white;
     font-size: 2.5vw;
     font-family: var(--font-primary);
-    transition: transform 0.5s ease-in-out;
-}
-
-.chat:hover {
-    transform: scale(1.1);
 }
 
 @media (max-width: 1024px) {
-    .precision {
-        grid-template-columns: 1fr; 
-        gap: 40px;
-    }
-
-    .precision h1 {
-        font-size: 4vw;
-    }
-
-    .title {
-        width: 100%;
-        margin-bottom: 100px;
-    }
-
-    .title h1{
-        font-size: 2.5em;
-    }
-
-    .gridCard {
-        flex: 0 0 48%;
-        padding: 25px; 
-    }
-
-    .image {
-        flex: 0 0 48%; 
-    }
-
     .efficiency {
         flex-direction: column; 
         align-items: center;
@@ -256,31 +106,6 @@
 }
 
 @media (max-width: 768px) {
-    .precision {
-        margin: 50px 0;
-    }
-
-    .precision h1 {
-        font-size: 2em; 
-    }
-
-    .title {
-        margin-bottom: 20px; 
-    }
-
-    .title h1{
-        font-size: 2em;
-    }
-
-    .gridCard {
-        flex: 0 0 48%; 
-        padding: 20px; 
-    }
-
-    .image {
-        flex: 0 0 48%; 
-    }
-
     .efficiency {
         margin-bottom: 100px; 
     }

@@ -7,9 +7,9 @@
     transition: transform 0.5s ease-in-out; 
 }
 
-.card:hover{
+/* .card:hover{
     transform: scale(1.05);
-}
+} */
 
 .card img{
     width: auto;

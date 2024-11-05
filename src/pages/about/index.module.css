@@ -42,6 +42,14 @@
     display: block;
 }
 
+.flex video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
 .title {
     flex: 2;
     color: var(--secondary-color);
@@ -70,6 +78,10 @@
     top: -2em;
 }
 
+.learnMore:hover{
+    background-color: #ABD7F9;
+}
+
 .flex2 {
     .imgWrapper {
         position: relative;
@@ -87,7 +99,25 @@
     }
 }
 
-.imgWrapper {
+.mediaWrapper{
+    height: 400px;
+
+    .imgWrapper{
+        height: 100%;
+    }
+
+    .imgWrapper img{
+        height: 100%;
+    }
+
+    .vidWrapper{
+    height: 100%;
+    width: 300px
+}
+    
+}
+
+.imgWrapper, .vidWrapper {
     position: relative;
     display: inline-block;
     flex-grow: 1;
@@ -179,11 +209,11 @@
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    transition: transform 0.5s ease-in-out;
 }
 
 .joinUs:hover {
-    transform: scale(1.1);
+    background-color: var(--secondary-color);
+    color: white;
 }
 
 @media (max-width: 1024px) {

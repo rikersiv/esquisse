@@ -27,10 +27,6 @@
     transition: transform 0.5s ease-in-out; 
 }
 
-.arrow:hover img{
-    transform: scale(1.1);
-}
-
 
 .navigation {
     flex-grow: 1;

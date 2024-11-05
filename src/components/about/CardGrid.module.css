@@ -20,13 +20,15 @@
 
 .innerCard {
     height: 100%;
-    width: 80%;
+    width: 90%;
+    position: relative;
 }
 
 .card img {
     width: 100%;
     height: auto;
     margin: auto;
+    transition: transform 0.5s ease-in-out;
 }
 
 .card h1 {
@@ -36,10 +38,15 @@
     margin: 2rem 0;
 }
 
+.card:hover img{
+    transform: scale(0.9);
+}
+
 .tags {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
+    margin-bottom: 5em;
 }
 
 .tags p {
@@ -58,6 +65,35 @@
 
 .tags p:last-child {
     flex: 1;
+}
+
+.link{
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 15em;
+    padding: 10px 30px;
+    border-radius: 50px;
+    color: white;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.link div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 50%;
+    border: 1px white solid;
+
+}
+
+.link img{
+    width: 20px !important;
 }
 
 /* Media Queries for Responsiveness */

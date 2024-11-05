@@ -1,0 +1,91 @@
+.process {
+    width: 100%;
+    max-width: 1420px;
+    margin-bottom: 100px;
+    overflow: hidden;
+}
+
+.title {
+    width: 60%;
+    max-width: 1420px;
+    margin-bottom: 60px;
+    font-weight: 100;
+    opacity: 0;
+}
+
+.title h1{
+    font-size: 40px;
+    font-weight: 100;
+    text-align: left;
+    color: var(--secondary-color)
+}
+
+.title strong {
+    font-weight: 500;
+}
+
+.gridWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.gridCard {
+    flex: 0 0 63%; 
+    box-sizing: border-box; 
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    height: auto;
+    padding: 30px;
+    background-color: var(--secondary-color);
+    color: white;
+    text-align: left;
+    opacity: 0;
+}
+
+.gridCard h4 {
+    width: 100%;
+    max-width: 1420px;
+    font-size: 1.265em;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.image {
+    flex: 0 0 35%; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    margin-bottom: 20px; 
+}
+
+.image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+@media (max-width: 1024px) {
+    .gridCard {
+        flex: 0 0 48%;
+        padding: 25px; 
+    }
+
+    .image {
+        flex: 0 0 48%; 
+    }
+}
+
+@media (max-width: 768px){
+    .gridCard {
+        flex: 0 0 100%; 
+        padding: 20px; 
+    }
+
+    .image {
+        display: none;
+    }
+
+}

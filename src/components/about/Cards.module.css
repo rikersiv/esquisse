@@ -1,5 +1,6 @@
 .card{
     flex: 1;
+    flex-grow: 1;
     background-color: var(--secondary-color);
     padding: 2rem;
     color: white;

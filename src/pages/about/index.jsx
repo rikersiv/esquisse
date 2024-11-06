@@ -13,48 +13,93 @@ gsap.registerPlugin(ScrollTrigger);
 
 function About() {
     const childRef = useRef(null);
-    const videoRef = useRef(null);
-    const secondVideoRef = useRef(null);
+    const missionRef = useRef(null);
+    const secondMissionRef = useRef(null);
+    const visionRef = useRef(null);
+    const secondVisionRef = useRef(null);
 
     useEffect(() => {
         gsap.fromTo(childRef.current, { y: 500, opacity: 0 }, { y: 0, opacity: 1, duration: 1.5, ease: "power2.out", delay: 0.5 });
 
-        const scrollTrigger = ScrollTrigger.create({
-            trigger: videoRef.current,
-            start: "top top",
-            end: "bottom center",
+        const missionScrollTrigger = ScrollTrigger.create({
+            trigger: missionRef.current,
+            start: "center center",
+            end: "bottom 99.9%",
             toggleActions: "play none none none",
-            onEnter: () => document.body.style.overflow = 'hidden',
-            onLeaveBack: () => document.body.style.overflow = 'auto',
+            onLeave: () => {
+                console.log("Leaving mission section, setting overflow to auto");
+                document.body.style.overflow = 'auto';
+                const missionElement = missionRef.current;
+                const targetContainer = secondMissionRef.current;
+
+                const targetRect = targetContainer.getBoundingClientRect();
+                const missionRect = missionElement.getBoundingClientRect();
+
+                const tl = gsap.timeline();
+                tl.to(missionElement, {
+                    x: targetRect.left - missionRect.left,
+                    y: targetRect.top - missionRect.top,
+                    scale: 0.3, 
+                    duration: 1,
+                    transformOrigin: "top left",
+                    onComplete: () => {
+                        gsap.set(missionRef, { clearProps: "all" });
+                        targetContainer.appendChild(missionElement);
+                        gsap.set(missionRef, { clearProps: 'transform' })
+                        const removableDiv = document.getElementById('removable');
+                        if (removableDiv) {
+                            removableDiv.remove();
+                        }
+                    }
+                });
+            },
+        });
+
+        const visionScrollTrigger = ScrollTrigger.create({
+            trigger: visionRef.current,
+            start: "center bottom",
+            end: "bottom 99.9%",
+            toggleActions: "play none none none",
+            onLeave: () => {
+                console.log("Leaving vision section, setting overflow to auto");
+                document.body.style.overflow = 'auto';
+                const visionElement = visionRef.current;
+                const targetContainer = secondVisionRef.current;
+
+                const targetRect = targetContainer.getBoundingClientRect();
+                const visionRect = visionElement.getBoundingClientRect();
+
+                const tl = gsap.timeline();
+                tl.to(visionElement, {
+                    x: targetRect.left - visionRect.left, 
+                    y: targetRect.top - visionRect.top, 
+                    scale: 0.1, 
+                    duration: 1,
+                    transformOrigin: "top left", 
+                    onComplete: () => {
+                        gsap.set(visionRef, { clearProps: "all" });
+                        gsap.set(visionElement, { opacity: 0 }); // Set initial opacity to 0
+                        targetContainer.appendChild(visionElement);
+                        gsap.to(visionElement, {
+                            opacity: 1,
+                            duration: 0.5,
+                            onComplete: () => {
+                                const removableDiv = document.getElementById('removable1');
+                                if (removableDiv) {
+                                    removableDiv.remove();
+                                }
+                            }
+                        });
+                    }
+                });
+            },
         });
 
         return () => {
-            scrollTrigger.kill();
-            document.body.style.overflow = 'auto';
+            missionScrollTrigger.kill();
+            visionScrollTrigger.kill();
         };
     }, []);
-
-    const handleVideoClick = () => {
-        const videoElement = videoRef.current;
-        const targetContainer = secondVideoRef.current;
-
-        targetContainer.appendChild(videoElement);
-        const tl = gsap.timeline();
-
-        tl.to(videoElement, {
-            scale: 0.5,
-            // x: 0,
-            // y: 0,
-            duration: 1,
-            onComplete: () => {
-                videoElement.style.width = '100%';
-                videoElement.style.zIndex = 'auto';
-                videoElement.style.position = 'unset';
-                videoElement.style.transform = 'none';
-                document.body.style.overflow = 'auto';
-            }
-        });
-    };
 
     return (
         <MainLayout>
@@ -95,21 +140,20 @@ function About() {
                     </div>
                 </div>
             </div>
-            <div style={{ zIndex: 101, position: 'absolute' }}>
-                <video ref={videoRef} autoPlay loop muted style={{ width: '100%' }} onClick={handleVideoClick}>
+            <div id='removable' style={{ zIndex: 101, position: 'absolute' }}>
+                <video ref={missionRef} autoPlay loop muted style={{ width: '100%' }}>
                     <source src={'/assets/videos/aboutus_vision.mp4'} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>
             <div className={styles.children}>
-                <div className={styles.wrapper}>
+                <div className={styles.wrapper} style={{ padding: 0 }}>
                     <div className={`${styles.flex} ${styles.mediaWrapper}`}>
-                        <div ref={secondVideoRef} className={`${styles.vidWrapper} ${styles.imgConditional}`}></div>
+                        <div ref={secondMissionRef} className={`${styles.vidWrapper} ${styles.imgConditional}`}></div>
                         <div className={styles.imgWrapper}>
                             <Image className={styles.innerTextImg} src={'/assets/images/about_img4.svg'} width={58} height={100} />
                             <div className={styles.innerText}>
-                                <Image src={'/assets/images/icons/handshake.svg'} width={20}
-                                    height={20} />
+                                <Image src={'/assets/images/icons/handshake.svg'} width={20} height={20} />
                                 <p>95% of users report feeling a strong sense of trust and authenticity in connections made through esquisse.</p>
                             </div>
                         </div>
@@ -120,25 +164,21 @@ function About() {
                     </div>
                 </div>
             </div>
-            <div style={{ zIndex: 101, position: 'absolute' }}>
-                {/* <video autoPlay loop muted style={{ width: '100%' }} onClick={handleVideoClick}>
+            <div id='removable1' style={{ zIndex: 101, position: 'absolute' }}>
+                <video ref={visionRef} autoPlay loop muted style={{ width: '100%' }}>
                     <source src={'/assets/videos/aboutus_mission.mp4'} type="video/mp4" />
                     Your browser does not support the video tag.
-                </video> */}
+                </video>
             </div>
             <div className={styles.children}>
-                <div className={styles.wrapper}>
+                <div className={styles.wrapper} style={{ padding: 0 }}>
                     <div className={styles.flex}>
                         <div className={styles.sideText} style={{ marginLeft: 0, marginRight: '5em' }}>
                             <h1>Our Vision</h1>
                             <p>esquisse envisions a future where technology seamlessly enhances human connection, creating opportunities for relationships that transcend the ordinary. We aspire to be an essential platform that fosters profound, meaningful connections—making networking more intuitive, impactful, and resonant in every facet of our users' lives.</p>
                         </div>
-                        <div className={styles.horizontalDivWrapper} style={{maxWidth: '400px'}}>
-                            {/* <Image src={'/assets/images/about_img5.svg'} width={100} height={56} style={{ marginBottom: '1.5em' }} /> */}
-                            <video autoPlay loop muted style={{ width: '100%', marginBottom: '1.5em' }} onClick={handleVideoClick}>
-                                <source src={'/assets/videos/aboutus_mission.mp4'} type="video/mp4" />
-                                Your browser does not support the video tag.
-                            </video>
+                        <div className={styles.horizontalDivWrapper} style={{ maxWidth: '400px' }}>
+                            <div ref={secondVisionRef}></div>
                             <div className={styles.imgWrapper}>
                                 <Image src={'/assets/images/about_img6.svg'} width={100} height={56} />
                                 <div className={styles.horizontalText}>
@@ -147,7 +187,7 @@ function About() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </ div>
                     <div className={styles.flex}>
                         <h1 className={styles.title}>Join Us on a Journey to<br /><strong>Redefine Global Connection</strong></h1>
                         <Link href={'/contact'} className={styles.joinUs}>JOIN US !</Link>

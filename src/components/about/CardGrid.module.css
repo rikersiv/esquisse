@@ -137,6 +137,10 @@
     .tags p {
         padding: 0.5rem; /* Adjust padding */
     }
+
+    .link{
+        position: unset;
+    }
 }
 
 @media (max-width: 480px) {

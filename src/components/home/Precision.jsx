@@ -33,7 +33,7 @@ function Precision() {
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: precisionRef.current,
-                start: 'top 40%',
+                start: 'top 50%',
                 toggleActions: 'play none none reverse',
             },
         });

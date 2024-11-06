@@ -63,6 +63,7 @@
     margin-right: -50vw; 
     overflow: hidden;
     padding: 0; 
+    overflow-x: hidden;
 }
 
 .chat {

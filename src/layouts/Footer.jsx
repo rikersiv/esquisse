@@ -100,15 +100,6 @@ function Footer() {
                                 <p>+1 891 989-11-91</p>
                                 <p>@esquisse.com</p>
                             </div>
-
-                            <div className={styles.socialMedia}>
-                                <small>Follow Us</small>
-                                <p>
-                                    <Link className={styles.links} href={"#"}>Telegram</Link> / 
-                                    <Link className={styles.links} href={"#"}>Whatsapp</Link> / 
-                                    <Link className={styles.links} href={"#"}>Twitter</Link>
-                                </p>
-                            </div>
                             <div className={styles.copyright}>
                                 <p>© 2023 — Copyright</p>
                                 <Link className={styles.links} href={"#"}>Privacy</Link>

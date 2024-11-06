@@ -53,11 +53,9 @@ function Precision() {
                 duration: 1,
                 ease: "ease",
             }, "<"); 
-        return () => {
-            if (ScrollTrigger) {
-                ScrollTrigger.kill();
-            }
-        };
+            return () => {
+                tl.scrollTrigger.kill(); 
+              };
     }, []);
 
     return (

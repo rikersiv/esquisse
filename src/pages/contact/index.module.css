@@ -128,3 +128,22 @@
     font-size: 2.5vw;
     font-family: var(--font-primary);
 }
+
+.loading{
+    width: 2em;
+    height: 2em;
+    border-color: white;
+    border-top: none; 
+    border: 2px solid;
+    border-radius: 50%;
+    animation: spin 1s linear infinite
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

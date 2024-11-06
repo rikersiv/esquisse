@@ -52,6 +52,16 @@
     transform: unset !important;
 }
 
+.videoFullscreen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1; /* To place it behind other content */
+}
+
 .title {
     flex: 2;
     color: var(--secondary-color);
@@ -169,7 +179,7 @@
 }
 
 .sideText {
-    width: 50vw;
+    width: 50em;
     margin-left: 2vw;
 }
 
@@ -217,6 +227,19 @@
 .joinUs:hover {
     background-color: var(--secondary-color);
     color: white;
+}
+
+.removable {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    width: 100%;
+}
+
+.removable video{
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 @media (max-width: 1024px) {
@@ -286,14 +309,19 @@
 }
 
 @media (max-width: 768px) {
+
+    .wrapper{
+        padding-bottom: 0;
+    }
+
     .block {
         display: block !important;
+        margin-bottom: 5em !important;
     }
 
     .flex {
         margin-bottom: 50px;
         flex-wrap: wrap;
-        display: block;
     }
 
     .flex h1 {
@@ -339,6 +367,7 @@
 
     .horizontalDivWrapper {
         width: 100%;
+        max-width: unset !important;
     }
 
     .joinUs {
@@ -359,8 +388,19 @@
     }
 
     .mediaWrapper {
+        height: unset !important;
         .imgWrapper {
             height: unset !important;
         }
+    }
+}
+
+@media (max-width: 468px) {
+    .flex p {
+        font-size: 0.5em;
+    }
+
+    .flex h1{
+        font-size: 1em;
     }
 }

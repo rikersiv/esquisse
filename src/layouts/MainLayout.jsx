@@ -7,12 +7,13 @@ import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
-function MainLayout({ children, isBannerVisible }) {
+function MainLayout({ children, isBannerVisible, mainHomepage }) {
   const [isFooterVisible, setIsFooterVisible] = useState(false);
   const footerWrapperRef = useRef(null);
   const bgColor = isBannerVisible ? 'transparent' : 'var(--blue-background)';
   const logo = isBannerVisible ? 'esquisse_light.svg' : 'esquisse.svg';
   const banner = isBannerVisible;
+  const homepage = mainHomepage;
 
   useEffect(() => {
     const handleVisibilityChange = (isVisible) => {
@@ -34,7 +35,7 @@ function MainLayout({ children, isBannerVisible }) {
   return (
     <div className={styles.mainLayoutWrapper}>
       <div className={styles.contents}>
-          <Header bgColor={bgColor} logo={logo} banner={banner} isFooterVisible={isFooterVisible} />
+          <Header bgColor={bgColor} logo={logo} banner={banner} isFooterVisible={isFooterVisible} homepage={mainHomepage} />
         <div>{children}</div>
         <div ref={footerWrapperRef}>
           <Footer />

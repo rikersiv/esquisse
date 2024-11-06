@@ -15,9 +15,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 function Home() {
   const [isBannerVisible, setIsBannerVisible] = useState(true);
+  const [ishomePage, setIshomePage] = useState(false);
   const homeWrapperRef = useRef(null);
   const efficiencyRef = useRef(null);
-
 
   useEffect(() => {
     const handleVisibilityChange = (isVisible) => {
@@ -89,20 +89,18 @@ function Home() {
             duration: 1.5,
             ease: "ease",
         }, "<"); 
-    return () => {
-        if (ScrollTrigger) {
-            ScrollTrigger.kill();
-        }
-    };
-}, []);
+        return () => {
+          tl.kill();
+        };
+  }, []);
 
   return (
-    <MainLayout isBannerVisible={isBannerVisible}>
-      <Banner videoPath="/assets/videos/homepage_herobanner.mp4">
+    <MainLayout isBannerVisible={isBannerVisible} mainHomepage={ishomePage}>
+      <Banner videoPath="/assets/videos/homepage_herobanner.mp4" setIshomePage={setIshomePage}>
         <p>Your Portal to Effortless,<br /><strong>Impactful Connections</strong></p>
         <button className={styles.chat}>REACH<br />OUT</button>
       </Banner>
-      <div className={styles.children}>
+ <div className={styles.children}>
         <div ref={homeWrapperRef} className={styles.homeWrapper}>
 
           <Precision />

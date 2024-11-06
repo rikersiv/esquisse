@@ -2,13 +2,12 @@ import { useEffect, useRef } from "react";
 import styles from "./Banner.module.css";
 import { gsap } from "gsap";
 
-function Banner({ videoPath, bgPath, children, isContactPage }) {
+function Banner({ videoPath, bgPath, children, isContactPage, setIshomePage }) {
     const wrapperRef = useRef(null);
     const innerElementsRef = useRef(null);
 
     useEffect(() => {
         if (isContactPage) {
-            // Animate the wrapper on mount
             gsap.fromTo(wrapperRef.current, 
                 { opacity: 0 }, 
                 { opacity: 1, duration: 1, ease: "ease" }
@@ -20,16 +19,20 @@ function Banner({ videoPath, bgPath, children, isContactPage }) {
                     duration: 1.5,
                     ease: "ease"
                 });
+                setIshomePage(true);
             };
 
-            wrapperRef.current.addEventListener("mouseenter", handleMouseEnter);
+            if (wrapperRef.current) {
+                wrapperRef.current.addEventListener("mouseenter", handleMouseEnter);
+            }
 
-            // Cleanup event listener on unmount
             return () => {
-                wrapperRef.current.removeEventListener("mouseenter", handleMouseEnter);
+                if (wrapperRef.current) {
+                    wrapperRef.current.removeEventListener("mouseenter", handleMouseEnter);
+                }
             };
         }
-    }, [isContactPage]);
+    }, [isContactPage, setIshomePage]);
 
     return (
         <div ref={wrapperRef} className={styles.wrapper} style={{ opacity: isContactPage ? 0 : 1 }}>

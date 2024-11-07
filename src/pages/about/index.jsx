@@ -14,108 +14,131 @@ gsap.registerPlugin(ScrollTrigger);
 function About() {
     const firstChildRef = useRef(null);
     const secondChildRef = useRef(null);
-    const thirdChildRef = useRef(null);
     const missionRef = useRef(null);
     const secondMissionRef = useRef(null);
     const visionRef = useRef(null);
     const secondVisionRef = useRef(null);
 
+    const animateElement = (ref, options) => {
+        gsap.fromTo(ref.current, options.from, options.to);
+    };
+
     useEffect(() => {
-        gsap.fromTo(firstChildRef.current, { y: 500, opacity: 0 }, { y: 0, opacity: 1, duration: 1.5, ease: "power2.out", delay: 0.5 });
-        gsap.fromTo(secondChildRef.current, { y: 500, opacity: 0 }, { y: 0, opacity: 1, duration: 1.5, ease: "power2.out", delay: 0.5 });
-        gsap.fromTo(thirdChildRef.current, { y: 500, opacity: 0 }, { y: 0, opacity: 1, duration: 1.5, ease: "power2.out", delay: 0.5 });
+        if (firstChildRef.current) {
+            animateElement(firstChildRef, {
+                from: { y: 500, opacity: 0 },
+                to: { y: 0, opacity: 1, duration: 1.5, ease: "power2.out", delay: 0.5 }
+            });
+        }
 
-        const missionScrollTrigger = ScrollTrigger.create({
-            trigger: missionRef.current,
-            start: "top bottom",
-            end: "top bottom",
-            toggleActions: "play none none none",
-            onLeave: () => {
-                document.body.style.overflow = 'auto';
-                const missionElement = missionRef.current;
-                const targetContainer = secondMissionRef.current;
+        if (secondChildRef.current) {
+            animateElement(secondChildRef, {
+                from: { y: 500, opacity: 0 },
+                to: { y: 0, opacity: 1, duration: 1.5, ease: "power2.out", delay: 0.5 }
+            });
+        }
 
-                const targetRect = targetContainer.getBoundingClientRect();
-                const missionRect = missionElement.getBoundingClientRect();
-
-                const tl = gsap.timeline();
-                tl.to(missionElement, {
-                    x: targetRect.left - missionRect.left,
-                    y: targetRect.top - missionRect.top,
-                    scale: 0.3, 
-                    opacity: 0.5,
-                    duration: 1,
-                    transformOrigin: "top left",
-                    onComplete: () => {
-                        gsap.set(missionRef, { clearProps: "all" });
-                        targetContainer.appendChild(missionElement);
-                        gsap.set(missionRef, { clearProps: 'transform' });
-                        gsap.to(missionElement, {
-                            opacity: 1,
-                            duration: 0.5,
-                            onComplete: () => {
-                                const removableDiv = document.getElementById('removable');
-                                if (removableDiv) {
-                                    removableDiv.remove();
-                                }
-                            }
-                        });
-                    }
+        const button = document.querySelector(`.${styles.learnMore}`);
+        const createRippleEffect = () => {
+            const tl = gsap.timeline();
+            tl.to(button, {
+                boxShadow: "0 0 0 20px rgba(202, 231, 255, 0.53), 0 0 0 20px rgba(202, 231, 255, 0)",
+                duration: 0.4,
+                ease: "ease"
+            })
+                .to(button, {
+                    boxShadow: "0 0 0 20px rgba(202, 231, 255, 0.25), 0 0 0 40px rgba(202, 231, 255, 0.28)",
+                    duration: 0.2,
+                    ease: "ease"
+                })
+                .to(button, {
+                    boxShadow: "0 0 0 20px rgba(202, 231, 255, 0), 0 0 0 40px rgba(202, 231, 255, 0.28)",
+                    duration: 0.4,
+                    ease: "ease"
+                })
+                .to(button, {
+                    boxShadow: "0 0 0 20px rgba(202, 231, 255, 0), 0 0 0 0px rgba(202, 231, 255, 0)",
+                    duration: 0.3,
+                    ease: "ease"
                 });
-            },
-        });
+        };
+        button.addEventListener("mouseenter", createRippleEffect);
 
-        const visionScrollTrigger = ScrollTrigger.create({
-            trigger: visionRef.current,
-            start: "center bottom",
-            end: "bottom bottom",
-            toggleActions: "play none none none",
-            onLeave: () => {
-                console.log("Leaving vision section, setting overflow to auto");
-                document.body.style.overflow = 'auto';
-                const visionElement = visionRef.current;
-                const targetContainer = secondVisionRef.current;
+        const vidWrap = missionRef.current;
+        const visionWrap = visionRef.current;
+        const targetContainer = secondMissionRef.current;
+        const targetVision = secondVisionRef.current;
 
-                const targetRect = targetContainer.getBoundingClientRect();
-                const visionRect = visionElement.getBoundingClientRect();
+        if (vidWrap && targetContainer) {
+            const targetRect = targetContainer.getBoundingClientRect();
+            const vidWrapRect = vidWrap.getBoundingClientRect();
+    
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: vidWrap,
+                    start: "top top",
+                    end: "bottom center",
+                    toggleActions: 'play none none none',
+                }
+            });
+    
+            tl.to(vidWrap, {
+                x: targetRect.left - vidWrapRect.left,
+                y: '404.5px',
+                width: "270px",
+                height: "400px",
+                duration: 0.5,
+            })
+            .to(vidWrap, {
+                opacity: 0, 
+                duration: 1, 
+                onComplete: () => {
+                    vidWrap.style.display = 'none'; 
+                }
+            });
+        }
+    
+        if (visionWrap && targetVision) {
+            const targetRect = targetVision.getBoundingClientRect();
+            const visionWrapRect = visionWrap.getBoundingClientRect();
+    
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: visionWrap,
+                    start: "top bottom",
+                    end: "bottom bottom",
+                    toggleActions: 'play none none none',
+                }
+            });
+    
+            tl.to(visionWrap, {
+                x: targetRect.left - visionWrapRect.left,
+                y: 0,
+                width: "400px",
+                height: "300px",
+                zIndex: "-1",
+                duration: 0.5,
+                delay: 0.1
+            })
+            .to(visionWrap, {
+                opacity: 0, 
+                duration: 1, 
+                onComplete: () => {
+                    visionWrap.style.display = 'none';
+                }
+            });
+        }
 
-                const tl = gsap.timeline();
-                tl.to(visionElement, {
-                    x: targetRect.left - visionRect.left, 
-                    y: targetRect.top - visionRect.top, 
-                    scale: 0.1, 
-                    opacity: 0.5,
-                    duration: 1,
-                    transformOrigin: "top left", 
-                    onComplete: () => {
-                        gsap.set(visionRef, { clearProps: "all" });
-                        gsap.set(visionElement, { opacity: 0 });
-                        targetContainer.appendChild(visionElement);
-                        gsap.to(visionElement, {
-                            opacity: 1,
-                            duration: 0.5,
-                            onComplete: () => {
-                                const removableDiv = document.getElementById('removable1');
-                                if (removableDiv) {
-                                    removableDiv.remove();
-                                }
-                            }
-                        });
-                    }
-                });
-            },
-        });
 
         return () => {
-            missionScrollTrigger.kill();
-            visionScrollTrigger.kill();
+            button.removeEventListener("mouseenter", createRippleEffect);
         };
     }, []);
 
     return (
         <MainLayout>
             <div className={styles.children}>
-                <div className={styles.wrapper} ref={firstChildRef} style={{ opacity: 0 }}>
+                <div className={styles.wrapper} ref={firstChildRef} style={{ opacity: 0}}>
                     <div className={`${styles.flex} ${styles.block}`}>
                         <h1 className={styles.title}>Connecting the<br /><strong>Dots for Success</strong></h1>
                         <p>esquisse is a pioneering software solution designed to redefine professional networking through scientifically-backed, data-driven connections. Built to go beyond conventional networking, esquisse applies advanced analytics and behavioral insights to foster relationships based on genuine alignment, shared values, and strategic goals.</p>
@@ -151,16 +174,21 @@ function About() {
                     </div>
                 </div>
             </div>
-            <div id='removable' ref={secondChildRef} className={styles.removable} style={{ zIndex: 102, position: 'absolute' }}>
-                <video ref={missionRef} autoPlay loop muted style={{ width: '100%' }}>
+
+            <div ref={missionRef} className={`${styles.vidWrapper}`}>
+                <video autoPlay loop muted>
                     <source src={'/assets/videos/aboutus_vision.mp4'} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>
+
             <div className={styles.children}>
-                <div className={styles.wrapper} ref={thirdChildRef} style={{ padding: 0 }}>
+                <div className={styles.wrapper} ref={secondChildRef} style={{ opacity: 0, paddingTop: 0 }}>
                     <div className={`${styles.flex} ${styles.mediaWrapper}`}>
-                        <div ref={secondMissionRef} className={`${styles.vidWrapper}`}></div>
+                        <video ref={secondMissionRef} autoPlay loop muted style={{ maxWidth: '270px' }}>
+                            <source src={'/assets/videos/aboutus_vision.mp4'} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
                         <div className={styles.imgWrapper}>
                             <Image className={styles.innerTextImg} src={'/assets/images/about_img4.svg'} width={58} height={100} />
                             <div className={styles.innerText}>
@@ -175,23 +203,29 @@ function About() {
                     </div>
                 </div>
             </div>
-            <div id='removable1' className={styles.removable} style={{ zIndex: 101, position: 'absolute' }}>
-                <video ref={visionRef} autoPlay loop muted style={{ width: '100%', marginBottom: '1.7em' }}>
+
+            <div ref={visionRef} className={`${styles.vissionWrapper}`}>
+                <video autoPlay loop muted style={{ width: '100%', marginBottom: '1 .7em' }}>
                     <source src={'/assets/videos/aboutus_mission.mp4'} type="video/mp4" />
                     Your browser does not support the video tag.
                 </video>
             </div>
+
             <div className={styles.children}>
-                <div className={styles.wrapper} style={{ padding: 0 }}>
+                <div className={styles.wrapper} style={{paddingTop: 0}}>
                     <div className={styles.flex}>
                         <div className={styles.sideText} style={{ marginLeft: 0, marginRight: '5em' }}>
                             <h1>Our Vision</h1>
-                            <p>esquisse envisions a future where technology seamlessly enhances human connection, creating opportunities for relationships that transcend the ordinary. We aspire to be an essential platform that fosters profound, meaningful connections—making networking more intuitive, impactful, and resonant in every facet of our users&apos; lives.</p>
+                            <p>esquisse envisions a future where technology seamlessly enhances human connection, creating opportunities for relationships that transcend the ordinary. We aspire to be an essential platform that fosters profound, meaningful connections—making networking more intuitive, impactful, and resonant in every facet of our users' lives.</p>
                         </div>
+
                         <div className={styles.horizontalDivWrapper} style={{ maxWidth: '400px' }}>
-                            <div ref={ secondVisionRef}></div>
-                            <div className={styles.imgWrapper}>
-                                <Image src={'/assets/images/about_img6.svg'} width={100} height={56} />
+                            <video ref={secondVisionRef} autoPlay loop muted style={{ width: '100%'}}>
+                                <source src={'/assets/videos/aboutus_mission.mp4'} type="video/mp4" />
+                                Your browser does not support the video tag.
+                            </video>
+                            <div className={styles.imgWrapper} style={{ paddingTop: '1 .7em' }}>
+                                <Image src={'/assets/images/about_img6.svg'} width={100} height={56}/>
                                 <div className={styles.horizontalText}>
                                     <h1>60%</h1>
                                     <p>Users report a 60% increase in professional and personal opportunities through meaningful connections.</p>

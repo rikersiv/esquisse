@@ -11,7 +11,7 @@
     color: white;
     text-align: left;
     padding: 2rem;
-    height: 30em;
+    min-height: 30em;
     width: auto;
     margin-bottom: 2rem;
     display: flex;
@@ -124,6 +124,7 @@
     .wrapper {
         margin-bottom: 50px;
         grid-template-columns: 1fr;
+        gap: 0.5em;
     }
 
     .card {

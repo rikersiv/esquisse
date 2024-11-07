@@ -18,7 +18,7 @@ function Header({ bgColor, logo, banner, isFooterVisible, homepage }) {
 
     useEffect(() => {
         if (pathname === '/') {
-            gsap.set(headerRef.current, { y: -100 });
+            gsap.set(headerRef.current, { y: -500 });
         }
         else if (pathname !== '/contact') {
             gsap.from(headerRef.current, {
@@ -32,7 +32,7 @@ function Header({ bgColor, logo, banner, isFooterVisible, homepage }) {
 
         if (homepage) {
             gsap.fromTo(headerRef.current, 
-                { y: -100, opacity: 0 }, 
+                { y: -500, opacity: 0 }, 
                 { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }
             );
         }

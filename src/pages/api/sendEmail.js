@@ -198,7 +198,7 @@ const sendApplicationHandler = async (req, res) => {
             <tr>
             <td class="pad" style="width:100%;">
             <div align="center" class="alignment" style="line-height:10px">
-            <div style="max-width: 600px;"><img height="auto" src="https://res.cloudinary.com/dhewmvhae/image/upload/v1730879680/esquisse_book_a_demo_transparent_1_s9gh8z.png" style="display: block; height: auto; border: 0; width: 100%;" width="600"/></div>
+            <div style="max-width: 600px;"><img height="auto" src="https://res.cloudinary.com/dhewmvhae/image/upload/v1730968114/esquisse_book_a_demo_transparent_1_yeu5kc.png" style="display: block; height: auto; border: 0; width: 100%;" width="600"/></div>
             </div>
             </td>
             </tr>
@@ -211,14 +211,14 @@ const sendApplicationHandler = async (req, res) => {
             </tr>
             </tbody>
             </table>
-            <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%">
+            <table align="center" border="0" cellpadding="0" cellspacing="0" class="row row-2" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;" width="100%; padding-bottom: 20px">
             <tbody>
             <tr>
             <td>
             <table align="center" border="0" cellpadding="0" cellspacing="0" class="row-content stack" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; border-radius: 0; color: #000000; width: 600px; margin: 0 auto;" width="600">
             <tbody>
             <tr>
-            <td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 5px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
+            <td class="column column-1" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; padding-bottom: 20px; padding-top: 5px; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;" width="100%">
             <table border="0" cellpadding="0" cellspacing="0" class="paragraph_block block-1" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;" width="100%">
             <tr>
             <td class="pad" style="padding-left:30px;">

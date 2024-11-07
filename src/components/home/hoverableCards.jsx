@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import styles from './hoverableCards.module.css';
 
 function HoverableCards() {
+    // Set the initial expanded index to 1 for the middle card
     const [expandedIndex, setExpandedIndex] = useState(1); 
+    const [isExpansionComplete, setIsExpansionComplete] = useState(true); // Initially set to true since the middle card is open
 
     const cardItems = [
         {
@@ -33,7 +35,20 @@ function HoverableCards() {
     ];
 
     const handleButtonClick = (index) => {
-        setExpandedIndex(index === expandedIndex ? 1 : index); 
+        if (index === expandedIndex) {
+            // If the same index is clicked, collapse it
+            setIsExpansionComplete(false);
+            setExpandedIndex(-1); // Collapse
+        } else {
+            // Expand the new index
+            setExpandedIndex(index);
+            setIsExpansionComplete(false); // Reset completion state
+
+            // Set a timeout to update the completion state after the expansion animation
+            setTimeout(() => {
+                setIsExpansionComplete(true);
+            }, 300); // Adjust this duration to match your CSS transition duration
+        }
     };
 
     return (
@@ -47,12 +62,18 @@ function HoverableCards() {
                         onClick={() => handleButtonClick(index)}
                     >
                         <h4 style={{ color: item.textColor }}>{item.title}</h4>
-                        {index === expandedIndex && <p style={{ color: item.textColor }}>{item.content}</p>}
+                        {index === expandedIndex && isExpansionComplete && (
+                            <p style={{ color: item.textColor }}>{item.content}</p>
+                        )}
                         <button
                             style={{ borderColor: item.textColor }}
                             className={styles.button}
                         >
-                            {index === expandedIndex ? <Image src={item.expandedIcon} width={32} height={32} /> : <Image src={item.initialIcon} width={32} height={32} />}
+                            {index === expandedIndex ? (
+                                <Image src={item.expandedIcon} width={32} height={32} />
+                            ) : (
+                                <Image src={item.initialIcon} width={32} height={32} />
+                            )}
                         </button>
                     </div>
                 ))}

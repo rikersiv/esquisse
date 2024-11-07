@@ -8,10 +8,6 @@
     transition: transform 0.5s ease-in-out; 
 }
 
-/* .card:hover{
-    transform: scale(1.05);
-} */
-
 .card img{
     width: auto;
     margin-bottom: 4em;

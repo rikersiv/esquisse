@@ -18,8 +18,12 @@
 .arrow {
     border: 1px white solid;
     border-radius: 50%;
-    height: 5vw;
+    height: 10vw;
+    width: 10vw;
     padding: 2vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-top: auto;
     margin-bottom: 30px;
 }

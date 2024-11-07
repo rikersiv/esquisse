@@ -8,7 +8,6 @@ import Link from 'next/link';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { useEffect, useRef } from 'react';
-import Head from 'next/head';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -32,8 +31,8 @@ function About() {
             });
         }
 
-        if (missionRef.current) {
-            animateElement(missionRef, {
+        if (secondChildRef.current) {
+            animateElement(secondChildRef, {
                 from: { y: 500, opacity: 0 },
                 to: { y: 0, opacity: 1, duration: 1.5, ease: "power2.out", delay: 0.5 }
             });
@@ -73,7 +72,7 @@ function About() {
         if (vidWrap && targetContainer) {
             const targetRect = targetContainer.getBoundingClientRect();
             const vidWrapRect = vidWrap.getBoundingClientRect();
-
+    
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: vidWrap,
@@ -82,7 +81,7 @@ function About() {
                     toggleActions: 'play none none none',
                 }
             });
-
+    
             tl.to(vidWrap, {
                 x: targetRect.left - vidWrapRect.left,
                 y: '200px',
@@ -91,19 +90,19 @@ function About() {
                 zIndex: -1,
                 duration: 0.5,
             })
-                .to(vidWrap, {
-                    opacity: 0,
-                    duration: 1,
-                    onComplete: () => {
-                        vidWrap.style.display = 'none';
-                    }
-                });
+            .to(vidWrap, {
+                opacity: 0, 
+                duration: 1, 
+                onComplete: () => {
+                    vidWrap.style.display = 'none'; 
+                }
+            });
         }
-
+    
         if (visionWrap && targetVision) {
-            const targetRect = targetVision.getBoundingClientRect();
+            const targetVisionRect = targetVision.getBoundingClientRect();
             const visionWrapRect = visionWrap.getBoundingClientRect();
-
+    
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: visionWrap,
@@ -112,9 +111,9 @@ function About() {
                     toggleActions: 'play none none none',
                 }
             });
-
+    
             tl.to(visionWrap, {
-                x: targetRect.left - visionWrapRect.left,
+                x: targetVisionRect.left - visionWrapRect.left,
                 y: 0,
                 width: "400px",
                 height: "300px",
@@ -122,13 +121,13 @@ function About() {
                 duration: 0.5,
                 delay: 0.1
             })
-                .to(visionWrap, {
-                    opacity: 0,
-                    duration: 1,
-                    onComplete: () => {
-                        visionWrap.style.display = 'none';
-                    }
-                });
+            .to(visionWrap, {
+                opacity: 0, 
+                duration: 1, 
+                onComplete: () => {
+                    visionWrap.style.display = 'none';
+                }
+            });
         }
 
 
@@ -139,12 +138,8 @@ function About() {
 
     return (
         <MainLayout>
-            <Head>
-                <title>Esquisse | About</title>
-                <meta name="description" content="We forge connections that truly matter" />
-            </Head>
             <div className={styles.children}>
-                <div className={styles.wrapper} ref={firstChildRef} style={{ opacity: 0 }}>
+                <div className={styles.wrapper} ref={firstChildRef} style={{ opacity: 0}}>
                     <div className={`${styles.flex} ${styles.block}`}>
                         <h1 className={styles.title}>Connecting the<br /><strong>Dots for Success</strong></h1>
                         <p>esquisse is a pioneering software solution designed to redefine professional networking through scientifically-backed, data-driven connections. Built to go beyond conventional networking, esquisse applies advanced analytics and behavioral insights to foster relationships based on genuine alignment, shared values, and strategic goals.</p>
@@ -210,7 +205,7 @@ function About() {
                 </div>
             </div>
 
-            <div ref={visionRef} className={`${styles.vissionWrapper}`}>
+            <div ref={visionRef} className={`${styles.visionWrapper}`}>
                 <video autoPlay loop muted style={{ width: '100%', marginBottom: '1 .7em' }}>
                     <source src={'/assets/videos/aboutus_mission.mp4'} type="video/mp4" />
                     Your browser does not support the video tag.
@@ -218,20 +213,20 @@ function About() {
             </div>
 
             <div className={styles.children}>
-                <div className={styles.wrapper} style={{ paddingTop: 0 }}>
+                <div className={styles.wrapper} style={{paddingTop: 0}}>
                     <div className={styles.flex}>
                         <div className={styles.sideText} style={{ marginLeft: 0, marginRight: '5em' }}>
                             <h1>Our Vision</h1>
-                            <p>esquisse envisions a future where technology seamlessly enhances human connection, creating opportunities for relationships that transcend the ordinary. We aspire to be an essential platform that fosters profound, meaningful connections—making networking more intuitive, impactful, and resonant in every facet of our users&apos; lives.</p>
+                            <p>esquisse envisions a future where technology seamlessly enhances human connection, creating opportunities for relationships that transcend the ordinary. We aspire to be an essential platform that fosters profound, meaningful connections—making networking more intuitive, impactful, and resonant in every facet of our users' lives.</p>
                         </div>
 
                         <div className={styles.horizontalDivWrapper} style={{ maxWidth: '400px' }}>
-                            <video ref={secondVisionRef} autoPlay loop muted style={{ width: '100%' }}>
+                            <video ref={secondVisionRef} autoPlay loop muted style={{ width: '100%'}}>
                                 <source src={'/assets/videos/aboutus_mission.mp4'} type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
                             <div className={styles.imgWrapper} style={{ paddingTop: '1 .7em' }}>
-                                <Image src={'/assets/images/about_img6.svg'} width={100} height={56} />
+                                <Image src={'/assets/images/about_img6.svg'} width={100} height={56}/>
                                 <div className={styles.horizontalText}>
                                     <h1>60%</h1>
                                     <p>Users report a 60% increase in professional and personal opportunities through meaningful connections.</p>

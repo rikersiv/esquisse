@@ -115,11 +115,11 @@
     z-index: 105;
 }
 
-.vissionWrapper{
+.visionWrapper{
     z-index: 104;
 }
 
-.vidWrapper, .vissionWrapper {
+.vidWrapper, .visionWrapper {
     position: absolute;
     left: 0;
     height: 100vh;
@@ -128,7 +128,7 @@
     overflow: hidden;
 }
 
-.vidWrapper video, .vissionWrapper video {
+.vidWrapper video, .visionWrapper video {
     width: 100%;
     height: 100%;
     object-fit: cover;

@@ -12,10 +12,12 @@
     text-align: left;
     padding: 2rem;
     min-height: 30em;
-    width: auto;
+    width: 100%;
     margin-bottom: 2rem;
     display: flex;
     flex-direction: column;
+    border-radius: 8px;
+    box-sizing: border-box;
 }
 
 .innerCard {
@@ -38,7 +40,7 @@
     margin: 2rem 0;
 }
 
-.card:hover img{
+.card:hover img {
     transform: scale(0.9);
 }
 
@@ -51,23 +53,17 @@
 
 .tags p {
     flex: 0 1 calc(50% - 0.5rem); 
-    box-sizing: border-box;
     margin: 0; 
     padding: 0.7rem 0.5rem;
     text-align: center;
     border: 1px solid white;
     color: white;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.tags p:last-child {
-    flex: 1;
-}
-
-.link{
+.link {
     position: absolute;
     bottom: 0;
     display: flex;
@@ -81,6 +77,11 @@
     text-decoration: none;
 }
 
+.link img{
+    width: 1em;
+    height: 1em;
+}
+
 .link div {
     display: flex;
     justify-content: center;
@@ -88,76 +89,87 @@
     width: 2.5em;
     height: 2.5em;
     border-radius: 50%;
-    border: 1px white solid;
-
+    border: 1px solid white;
 }
 
-.link img{
-    width: 20px !important;
-}
-
-/* Media Queries for Responsiveness */
 @media (max-width: 1024px) {
     .wrapper {
-        margin-bottom: 100px; /* Adjust margin */
+        margin-bottom: 100px;
+        gap: 1.5rem;
     }
 
     .card {
-        height: auto; 
+        min-height: 20em;
     }
 
     .card h1 {
         font-size: 2rem;
-        margin-top: 0;
+        margin-top: 1rem;
     }
 
-    .innerCard{
+    .innerCard {
         width: 100%;
     }
 
     .tags p {
-        flex: 1 1 100%; /* Full width for tags */
+        flex: 1 1 100%;
     }
 }
 
 @media (max-width: 768px) {
     .wrapper {
-        margin-bottom: 50px;
         grid-template-columns: 1fr;
-        gap: 0.5em;
+        gap: 1rem;
+        margin-bottom: 50px;
     }
 
     .card {
-        padding: 3rem; 
+        padding: 1.5rem;
+        min-height: auto;
     }
 
     .card h1 {
-        font-size: 1.75rem; /* Adjust font size */
+        font-size: 1.75rem;
+        margin: 1rem 0;
     }
 
     .tags p {
-        padding: 0.5rem; /* Adjust padding */
+        padding: 0.5rem;
     }
 
-    .link{
-        position: unset;
+    .link {
+        position: relative;
+        margin-top: 1rem;
     }
 }
 
 @media (max-width: 480px) {
     .wrapper {
-        margin-bottom: 20px; /* Further adjust margin */
+        margin-bottom: 20px;
     }
 
     .card {
-        padding: 1rem; /* Reduce padding */
+        padding: 1rem;
     }
 
     .card h1 {
-        font-size: 1.5rem; /* Adjust font size */
+        font-size: 1.5rem;
+        margin: 1rem 0;
     }
 
     .tags p {
-        padding: 0.3rem; /* Adjust padding */
+        padding: 0.3rem;
+    }
+
+    .link {
+        width: 100%;
+        text-align: center;
+        padding: 0.5rem 2rem;
+        font-size: 0.9rem;
+    }
+
+    .link div {
+        width: 2em;
+        height: 2em;
     }
 }

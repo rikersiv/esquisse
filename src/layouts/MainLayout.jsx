@@ -18,11 +18,12 @@ function MainLayout({ children, isBannerVisible, mainHomepage }) {
   useEffect(() => {
     const handleVisibilityChange = (isVisible) => {
       setIsFooterVisible(isVisible);
+      console.log(isVisible);
     };
 
     const homeTrigger = ScrollTrigger.create({
       trigger: footerWrapperRef.current,
-      start: 'top top', 
+      start: 'top 10%', 
       onEnter: () => handleVisibilityChange(true), 
       onLeaveBack: () => handleVisibilityChange(false),
       toggleActions: 'play none none reverse',

@@ -21,6 +21,7 @@ function Contact() {
     const [loading, setLoading] = useState(false)
     const imageRef = useRef(null);
     const sendRef = useRef(null);
+    const buttonRef = useRef(null);
     const [placeholders, setPlaceholders] = useState({
         name: "Name",
         email: "Email",
@@ -161,7 +162,7 @@ function Contact() {
     };
 
     useEffect(() => {
-        const button = document.querySelector(`.${styles.scroll}`);
+        const button = buttonRef.current;
 
         const createRippleEffect = () => {
             const tl = gsap.timeline();
@@ -203,7 +204,7 @@ function Contact() {
             </Head>
             <Banner bgPath="url('/assets/images/contact_bg.svg')" isContactPage={true}>
                 <p style={{ marginTop: 'auto', marginBottom: '-3rem' }}>Contact Us</p>
-                <button className={styles.scroll}>SCROLL<br />DOWN</button>
+                <button className={styles.scroll}  ref={buttonRef}>SCROLL<br />DOWN</button>
             </Banner>
 
             <div className={styles.children}>

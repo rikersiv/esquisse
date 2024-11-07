@@ -217,7 +217,7 @@ function About() {
                     <div className={styles.flex}>
                         <div className={styles.sideText} style={{ marginLeft: 0, marginRight: '5em' }}>
                             <h1>Our Vision</h1>
-                            <p>esquisse envisions a future where technology seamlessly enhances human connection, creating opportunities for relationships that transcend the ordinary. We aspire to be an essential platform that fosters profound, meaningful connections—making networking more intuitive, impactful, and resonant in every facet of our users' lives.</p>
+                            <p>esquisse envisions a future where technology seamlessly enhances human connection, creating opportunities for relationships that transcend the ordinary. We aspire to be an essential platform that fosters profound, meaningful connections—making networking more intuitive, impactful, and resonant in every facet of our users&apos; lives.</p>
                         </div>
 
                         <div className={styles.horizontalDivWrapper} style={{ maxWidth: '400px' }}>

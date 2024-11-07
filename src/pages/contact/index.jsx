@@ -6,6 +6,7 @@ import Image from "next/image";
 import { gsap } from 'gsap';
 import { z } from 'zod'; // Import Zod
 import { Toaster, toast } from 'sonner'; // Import Sonner
+import Head from 'next/head';
 
 // Define the validation schema
 const contactSchema = z.object({
@@ -196,6 +197,10 @@ function Contact() {
 
     return (
         <MainLayout>
+            <Head>
+                <title>Esquisse | Contact Us</title>
+                <meta name="description" content="Whether you have a question about our services, need support, or want to discuss a new project, we’re here to help." />
+            </Head>
             <Banner bgPath="url('/assets/images/contact_bg.svg')" isContactPage={true}>
                 <p style={{ marginTop: 'auto', marginBottom: '-3rem' }}>Contact Us</p>
                 <button className={styles.scroll}>SCROLL<br />DOWN</button>

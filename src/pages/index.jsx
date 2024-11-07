@@ -10,6 +10,7 @@ import { gsap } from "gsap";
 import Precision from "@/components/home/Precision";
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import Process from "@/components/home/Process";
+import Head from "next/head";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -96,6 +97,10 @@ function Home() {
 
   return (
     <MainLayout isBannerVisible={isBannerVisible} mainHomepage={ishomePage}>
+      <Head>
+                <title>Esquisse | Home</title>
+                <meta name="description" content="Your Portal to Effortless, Impactful Connections" />
+            </Head>
       <Banner videoPath="/assets/videos/homepage_herobanner.mp4" setIshomePage={setIshomePage}>
         <p>Your Portal to Effortless,<br /><strong>Impactful Connections</strong></p>
         <button className={styles.chat}>REACH<br />OUT</button>

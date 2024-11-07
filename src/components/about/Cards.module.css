@@ -1,4 +1,4 @@
-.card{
+.card {
     flex: 1;
     flex-grow: 1;
     background-color: var(--secondary-color);
@@ -6,6 +6,8 @@
     color: white;
     text-align: left;
     transition: transform 0.5s ease-in-out; 
+    box-sizing: border-box;
+    min-height: 490px;
 }
 
 .card img{
@@ -28,6 +30,7 @@
 @media (max-width: 1024px) {
     .card {
         height: 25vw;
+        min-height: 25vw;
         flex-wrap: wrap;
     }
 

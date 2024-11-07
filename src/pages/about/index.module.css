@@ -31,7 +31,7 @@
 .flex p {
     flex: 2;
     color: var(--secondary-color);
-    text-align: justify;
+    text-align: left;
     font-size: 1.2em;
 }
 
@@ -111,13 +111,21 @@
     }
 }
 
+.vidWrapper{
+    z-index: 105;
+}
+
+.vissionWrapper{
+    z-index: 104;
+}
+
 .vidWrapper, .vissionWrapper {
     position: absolute;
     left: 0;
-    z-index: 105;
     height: 100vh;
     width: 100%;
     transition: width 0.3s ease; 
+    overflow: hidden;
 }
 
 .vidWrapper video, .vissionWrapper video {
@@ -142,8 +150,7 @@
 
 }
 
-.imgWrapper,
-.vidWrapper {
+.imgWrapper{
     position: relative;
     display: inline-block;
     flex-grow: 1;
@@ -322,6 +329,10 @@
 
     .innerText p {
         font-size: 2vw;
+    }
+
+    .mediaWrapper video{
+        max-width: 150px !important;
     }
 }
 

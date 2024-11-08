@@ -1,33 +1,67 @@
-.marquee{
+.marquee {
     width: 100vw;
     left: 0;
     margin-bottom: 300px;
     overflow: hidden;
-    white-space: no-wrap;
+    white-space: nowrap;
 }
 
-.marqueeItem{
+.marqueeItem {
     padding: 15px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10 0px;
+    gap: 10px;
     width: 110%;
     white-space: nowrap;
-   
 }
 
-.marqueeContent{
+.marqueeContent {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 10 0px;
+    margin: 10px 0;
     width: 110%;
     white-space: nowrap;
 }
 
-.marqueeWrapper{
+.marqueeWrapper {
     margin-bottom: 1vw;
 }
 
+@media (max-width: 1024px) {
+    .marqueeContent {
+        width: 150%; 
+    }
+    
+}
 
+@media (max-width: 768px) {
+    .marqueeItem {
+        gap: 5px;
+        padding: 10px 0;
+    }
+
+    .marqueeContent {
+        width: 250%; 
+    }
+
+    .quote {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .marqueeItem {
+        gap: 3px;
+        padding: 8px 0;
+    }
+
+    .marqueeContent {
+        width: 280%;
+    }
+
+    .quote {
+        font-size: 0.8rem;
+    }
+}

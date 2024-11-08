@@ -50,11 +50,6 @@ function Marquee() {
                 textColor: 'var(--secondary-color)',
                 quote: '“In just days, we found the ideal collaborator for our next big project, unlocking opportunities faster than we imagined possible.”'
             },
-            {
-                bgColor: 'var(--light-blue)',
-                textColor: 'var(--secondary-color)',
-                quote: '“In just days, we found the ideal collaborator for our next big project, unlocking opportunities faster than we imagined possible.”'
-            },
         ],
         [
             {
@@ -87,19 +82,8 @@ function Marquee() {
                 quote: '“Esquisse transformed the way we connect—networking has never been this effortless!”',
                 quote1: '“We found the perfect partner for our next project in just days.”'
             },
-            {
-                bgColor: 'var(--primary-color)',
-                textColor: 'white',
-                quote: '“Esquisse transformed the way we connect—networking has never been this effortless!”',
-                quote1: '“We found the perfect partner for our next project in just days.”'
-            },
         ],
         [
-            {
-                bgColor: 'var(--secondary-color)',
-                textColor: 'white',
-                quote: '“With AI-driven matches that felt like they truly understood our needs, we forged partnerships that aligned perfectly with our vision.”'
-            },
             {
                 bgColor: 'var(--secondary-color)',
                 textColor: 'white',

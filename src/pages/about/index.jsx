@@ -73,6 +73,7 @@ function About() {
         if (vidWrap && targetContainer) {
             const targetRect = targetContainer.getBoundingClientRect();
             const vidWrapRect = vidWrap.getBoundingClientRect();
+            const yOffset = targetRect.top - vidWrapRect.top;
     
             const tl = gsap.timeline({
                 scrollTrigger: {
@@ -85,11 +86,11 @@ function About() {
     
             tl.to(vidWrap, {
                 x: targetRect.left - vidWrapRect.left,
-                y: '200px',
-                width: "270px",
-                height: "400px",
+                y: yOffset,
+                width: `${targetRect.width}px`,
+                height: `${targetRect.height}px`,
                 zIndex: -1,
-                duration: 0.5,
+                duration: 1,
             })
             .to(vidWrap, {
                 opacity: 0, 
@@ -103,6 +104,7 @@ function About() {
         if (visionWrap && targetVision) {
             const targetVisionRect = targetVision.getBoundingClientRect();
             const visionWrapRect = visionWrap.getBoundingClientRect();
+            const yOffsetVision = targetVisionRect.top - visionWrapRect.top;
     
             const tl = gsap.timeline({
                 scrollTrigger: {
@@ -114,10 +116,10 @@ function About() {
             });
     
             tl.to(visionWrap, {
-                x: targetVisionRect.left - visionWrapRect.left,
-                y: 0,
-                width: "400px",
-                height: "300px",
+                x: targetVisionRect.left,
+                y: yOffsetVision,
+                width: `${targetVisionRect.width}px`,
+                height: `${targetVisionRect.height}px`,
                 zIndex: "-1",
                 duration: 0.5,
                 delay: 0.1

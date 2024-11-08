@@ -414,9 +414,14 @@
     }
 
     .mediaWrapper {
+        gap: 0;
         height: unset !important;
         .imgWrapper {
             height: unset !important;
+        }
+
+        .sideText{
+            margin-top: 1.5em;
         }
     }
 }

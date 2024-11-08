@@ -55,9 +55,9 @@ const sendApplicationHandler = async (req, res) => {
         }).join('');
 
         const userMailOptions = {
-            from: `"rikersiv" <${process.env.EMAIL_FROM}>`,
+            from: `"esquisse" <${process.env.EMAIL_FROM}>`,
             to: application.email,
-            subject: "Thanks for sending an Application",
+            subject: "Thanks for sending a Message",
             html: `<!DOCTYPE html>
             <html lang="en" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:v="urn:schemas-microsoft-com:vml">
             <head>
@@ -272,8 +272,8 @@ const sendApplicationHandler = async (req, res) => {
 
         const adminMailOptions = {
             from: process.env.EMAIL_FROM,
-            to: 'cmgerzon@gmail.com', 
-            subject: 'New Application Submission',
+            to: 'sales@esquisse.io', 
+            subject: 'New Contact Submission',
             html: formattedAnswers, 
         };
 

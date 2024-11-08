@@ -14,11 +14,11 @@ const gridCardsData = [
   },
   {
     type: 'image',
-    src: '/assets/images/image1.svg',
+    src: '/assets/images/image1_clear.svg',
   },
   {
     type: 'image',
-    src: '/assets/images/image2.svg',
+    src: '/assets/images/image2_clear.svg',
   },
   {
     type: 'gridCard',
@@ -85,54 +85,6 @@ function Process() {
     };
   }, []);
 
-  useEffect(() => {
-    const handleMouseEnter = (index) => {
-      setImageSrcs(prevSrcs => {
-        const newSrcs = [...prevSrcs];
-        if (index === 1) {
-          newSrcs[index] = '/assets/images/image1_clear.svg'; // Change for the first image
-        } else if (index === 2) {
-          newSrcs[index] = '/assets/images/image2_clear.svg'; // Change for the second image
-        }
-        return newSrcs;
-      });
-
-      gsap.to(gridCardRefs.current[index], {
-        opacity: 1,
-        duration: 1.5,
-        ease: "power2.out" 
-      });
-    };
-
-    const handleMouseLeave = (index) => {
-      setImageSrcs(prevSrcs => {
-        const newSrcs = [...prevSrcs];
-        if (index === 1) {
-          newSrcs[index] = '/assets/images/image1.svg'; // Revert for the first image
-        } else if (index === 2) {
-          newSrcs[index] = '/assets/images/image2.svg'; // Revert for the second image
-        }
-        return newSrcs;
-      });
-    };
-
- gridCardRefs.current.forEach((el, index) => {
-      if (el) {
-        el.addEventListener("mouseenter", () => handleMouseEnter(index));
-        el.addEventListener("mouseleave", () => handleMouseLeave(index));
-      }
-    });
-
-    return () => {
-      gridCardRefs.current.forEach((el, index) => {
-        if (el) {
-          el.removeEventListener("mouseenter", () => handleMouseEnter(index));
-          el.removeEventListener("mouseleave", () => handleMouseLeave(index));
-        }
-      });
-    };
-  }, []);
-
   return (
     <div className={styles.process} ref={processRef}>
       <div className={styles.title} ref={titleRef}>
@@ -152,7 +104,8 @@ function Process() {
           } else if (card.type === 'image') {
             return (
               <div className={styles.image} key={index}>
-                <Image src={imageSrcs[index]} width={100} height={60} ref={el => (gridCardRefs.current[index] = el)} />
+                <Image src={imageSrcs[index]} width={100} height={60} loading="lazy" ref={el => (gridCardRefs.current[index] = el)} />
+                <div className={styles.overlay}></div>
               </div>
             );
           }

@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/dist/ScrollTrigger';
 import { useEffect, useRef } from 'react';
+import Head from 'next/head';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -138,6 +139,10 @@ function About() {
 
     return (
         <MainLayout>
+             <Head>
+                <title>Esquisse | About Us</title>
+                <meta name="description" content="esquisse is a pioneering software solution designed to redefine professional networking through scientifically-backed, data-driven connections." />
+            </Head>
             <div className={styles.children}>
                 <div className={styles.wrapper} ref={firstChildRef} style={{ opacity: 0}}>
                     <div className={`${styles.flex} ${styles.block}`}>
@@ -161,7 +166,7 @@ function About() {
                             }
                         ].map((item, index) => (
                             <div key={index} className={styles.imgWrapper}>
-                                <Image src={item.src} width={item.width} height={item.height} />
+                                <Image src={item.src} width={item.width} height={item.height} loading="lazy"/>
                                 {item.buttonText ? (
                                     <button className={styles.learnMore}>{item.buttonText}</button>
                                 ) : (
@@ -193,7 +198,7 @@ function About() {
                         <div className={styles.imgWrapper}>
                             <Image className={styles.innerTextImg} src={'/assets/images/about_img4.svg'} width={58} height={100} />
                             <div className={styles.innerText}>
-                                <Image src={'/assets/images/icons/handshake.svg'} width={20} height={20} />
+                                <Image src={'/assets/images/icons/handshake.svg'} width={20} height={20} loading="lazy"/>
                                 <p>95% of users report feeling a strong sense of trust and authenticity in connections made through esquisse.</p>
                             </div>
                         </div>
@@ -226,7 +231,7 @@ function About() {
                                 Your browser does not support the video tag.
                             </video>
                             <div className={styles.imgWrapper} style={{ paddingTop: '1 .7em' }}>
-                                <Image src={'/assets/images/about_img6.svg'} width={100} height={56}/>
+                                <Image src={'/assets/images/about_img6.svg'} width={100} height={56} loading="lazy"/>
                                 <div className={styles.horizontalText}>
                                     <h1>60%</h1>
                                     <p>Users report a 60% increase in professional and personal opportunities through meaningful connections.</p>

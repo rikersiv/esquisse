@@ -97,11 +97,12 @@ function Footer() {
                         <div className={styles.contacts}>
                             <div className={styles.contactUs}>
                                 <small>Contact Us</small>
-                                <p>+1 891 989-11-91</p>
-                                <p>@esquisse.com</p>
+                                <p>sales@esquisse.io</p>
+                                {/* <p>+1 891 989-11-91</p> */}
+                                
                             </div>
                             <div className={styles.copyright}>
-                                <p>© 2023 — Copyright</p>
+                                <p>© 2024 — Copyright</p>
                                 <Link className={styles.links} href={"#"}>Privacy</Link>
                             </div>
                         </div>
